@@ -60,7 +60,7 @@ Material:
     - _Cull: 0
     - _Cutoff: 0
     - _CutoffSpeed: -0.4
-    - _Displacement_Amount: 0.5
+    - _Displacement_Amount: 0
     - _Displacement_Scale: 1
     - _Displacement_Speed: 0.2
     - _DstBlend: 10
