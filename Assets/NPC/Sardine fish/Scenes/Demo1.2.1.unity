@@ -97,8 +97,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: d34b501f0d505704fb8ac3f8b3681405,
-    type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: d34b501f0d505704fb8ac3f8b3681405, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -959,8 +958,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205493896 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 162542, guid: 604c6a2a7f9c3484a86af004a7dcaf6a,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 162542, guid: 604c6a2a7f9c3484a86af004a7dcaf6a, type: 3}
   m_PrefabInstance: {fileID: 1166868294}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1215248813
@@ -1450,7 +1448,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -7,6 +7,7 @@ public class Water_Settings : MonoBehaviour
 {
     Material waterVolume;
     Material waterMaterial;
+    //float waveHeight = 0.0f;
 
     void Update()
     {
@@ -20,6 +21,14 @@ public class Water_Settings : MonoBehaviour
             waterMaterial = GetComponent<MeshRenderer>().sharedMaterial;
         }
 
-        waterVolume.SetVector("pos", new Vector4(0, (waterVolume.GetVector("bounds").y / -2) + transform.position.y + (waterMaterial.GetFloat("_Displacement_Amount") / 3), 0, 0));
+
+        waterVolume.SetVector("pos", new Vector4(0, getWaveHeight(), 0, 0));
+    }
+
+    //SHEN add
+    public float getWaveHeight()
+    {
+
+        return (waterVolume.GetVector("bounds").y / -2) + transform.position.y + (waterMaterial.GetFloat("_Displacement_Amount") / 3);
     }
 }
