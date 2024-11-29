@@ -127,15 +127,16 @@ public class lb_BirdController : MonoBehaviour {
 		GameObject[] perchTargets = GameObject.FindGameObjectsWithTag("lb_perchTarget");
 
 		for (int i=0;i<groundTargets.Length;i++){
-			if(Vector3.Distance (groundTargets[i].transform.position,currentCamera.transform.position)<unspawnDistance){
+			if(Vector3.Distance (groundTargets[i].transform.position,currentCamera.transform.parent.parent.position) < unspawnDistance){
 				birdGroundTargets.Add(groundTargets[i]);
 			}
+			
 		}
 		for (int i=0;i<perchTargets.Length;i++){
-			if(Vector3.Distance (perchTargets[i].transform.position,currentCamera.transform.position)<unspawnDistance){
+			if(Vector3.Distance (perchTargets[i].transform.position,currentCamera.transform.parent.parent.position)<unspawnDistance){
 				birdPerchTargets.Add(perchTargets[i]);
 			}
-		}
+        }
 
 		//instantiate 3 feather emitters for killing the birds
 		GameObject fEmitter = Resources.Load ("featherEmitter",typeof(GameObject)) as GameObject;
@@ -167,10 +168,11 @@ public class lb_BirdController : MonoBehaviour {
 	}
 
 	void UpdateBirds(){
+
 		//this function is called once a second
 		if(activeBirds < idealNumberOfBirds  && AreThereActiveTargets()){
-			//if there are less than ideal birds active, spawn a bird
-			SpawnBird();
+            //if there are less than ideal birds active, spawn a bird
+            SpawnBird();
 		}else if(activeBirds < maximumNumberOfBirds && Random.value < .05 && AreThereActiveTargets()){
 			//if there are less than maximum birds active spawn a bird every 20 seconds
 			SpawnBird();
