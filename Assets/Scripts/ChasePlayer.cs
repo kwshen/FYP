@@ -1,31 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem.Android;
 
-public class bearController : MonoBehaviour
+public class ChasePlayer : MonoBehaviour
 {
+    public NavMeshAgent agent;
     public GameObject Player;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject == Player)
+        if(Player != null)
         {
-            gameObject.GetComponent<ChasePlayer>().enabled = true;
+            agent.SetDestination(Player.transform.position);
         }
     }
-
-
 }

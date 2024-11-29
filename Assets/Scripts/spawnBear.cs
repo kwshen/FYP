@@ -5,7 +5,7 @@ using UnityEngine;
 public class spawnBear : MonoBehaviour
 {
     public GameObject bear;
-    float radius = 141.0f;
+    float radius = 150.0f;
     List<GameObject> spawnPointList = new List<GameObject>();
     string tagName = "SpawnPoint";
     GameObject[] SpawnPointInScene;
