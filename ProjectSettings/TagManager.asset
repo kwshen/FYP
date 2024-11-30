@@ -9,6 +9,7 @@ TagManager:
   - lb_perchTarget
   - lb_bird
   - SpawnPoint
+  - deer
   layers:
   - Default
   - TransparentFX
