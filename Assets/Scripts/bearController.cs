@@ -75,8 +75,8 @@ using UnityEngine.AI;
 
 public class BearController : MonoBehaviour
 {
-    public enum BearState { Idle, Wandering, Chasing, Sleeping }
-    public BearState currentState = BearState.Idle;
+    public enum BearState { Wandering, Chasing, Sleeping }
+    public BearState currentState = BearState.Wandering;
 
     Transform wanderCenterPoint;
     NavMeshAgent agent;
@@ -102,10 +102,6 @@ public class BearController : MonoBehaviour
     {
         switch (currentState)
         {
-            case BearState.Idle:
-                HandleIdle();
-                break;
-
             case BearState.Wandering:
                 HandleWandering();
                 break;
@@ -120,26 +116,11 @@ public class BearController : MonoBehaviour
         }
     }
 
-    void HandleIdle()
-    {
-        // If the agent is not moving, stay in Idle state
-        if (agent.velocity.magnitude < 0.1f)
-        {
-            // Check for any targets in range to start chasing
-            CheckForChase();
-        }
-        else
-        {
-            // If the agent starts moving, transition to Wandering or Chasing
-            TransitionToState(BearState.Wandering);
-        }
-    }
 
     void HandleWandering()
     {
         wanderTimer += Time.deltaTime;
-
-        if (wanderTimer >= wanderInterval)
+        if (wanderTimer < wanderInterval)
         {
             wanderTimer = 0.0f;
 
@@ -148,7 +129,7 @@ public class BearController : MonoBehaviour
             {
                 agent.SetDestination(randomPos);
 
-                if (Random.Range(0f, 1f) < 0.2f)
+                if (Random.Range(0f, 1f) < 0.0001f)
                 {
                     TransitionToState(BearState.Sleeping);
                 }
@@ -206,10 +187,8 @@ public class BearController : MonoBehaviour
             case BearState.Chasing:
                 agent.ResetPath();
                 break;
-            case BearState.Idle:
-                break;
         }
-        
+
         currentState = newState;
     }
 
