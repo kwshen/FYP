@@ -13,13 +13,16 @@ public class BearController : MonoBehaviour
     public bool isSleeping = false;
     float sleepTime = 10.0f;
     float sleepTimer = 0.0f;
+    int waterAreaMask;
 
     // Start is called before the first frame update
     void Start()
     {
+        waterAreaMask = 5 << NavMesh.GetAreaFromName("Water");
         wanderCenterPoint = transform;
         agent = GetComponent<NavMeshAgent>();
         InvokeRepeating("wanderInArea", 0f, wanderInterval);
+
     }
 
     // Update is called once per frame
@@ -32,8 +35,7 @@ public class BearController : MonoBehaviour
             if (sleepTimer >= sleepTime)
             {
                 isSleeping = false;   // After sleep time, wake up
-                Debug.Log(isSleeping);
-
+                InvokeRepeating("wanderInArea", 0f, wanderInterval);
                 sleepTimer = 0f;       // Reset the sleep timer 
             }
         }
@@ -45,31 +47,34 @@ public class BearController : MonoBehaviour
 
     void wanderInArea()
     {
-        Vector3 randomPos = Position.GetRandomPosition(wanderCenterPoint, wanderRadius);  // Get a random position within the area
-        if (agent.isOnNavMesh)  // Ensure the position is valid on the NavMesh
+        //check if isSleeping
+        if (isSleeping)
         {
-            agent.SetDestination(randomPos);  // Move the agent to the random position
+            CancelInvoke("wanderInArea");
+
+            return;
         }
 
-        if (Random.Range(0f, 1f) < 0.1f)  // 20% chance to sleep after wandering
+        Vector3 randomPos = Position.GetRandomPosition(wanderCenterPoint, wanderRadius);  // Get a random position within the area
+
+        // check if valid
+        if (Position.isValidPosition(randomPos, waterAreaMask))
         {
-            isSleeping = true;
-            Debug.Log("Is sleeping");
+
+            agent.SetDestination(randomPos);  // Move the agent to the random position
+
+
+            if (Random.Range(0f, 1f) < 0.1f)  // 20% chance to sleep after wandering
+            {
+                CancelInvoke("wanderInArea");
+
+                isSleeping = true;
+
+            }
         }
+
+
     }
 
-    //public Vector3 GetRandomPosition(Transform centerPoint, int radius)
-    //{
-    //    // Get a random angle (0 to 2π)
-    //    float angle = Random.Range(0f, 2f * Mathf.PI);
 
-    //    // Get a random radius (between 0 and the full radius of the circle)
-    //    float randomRadius = Random.Range(0f, radius);
-
-    //    // Convert polar coordinates to Cartesian coordinates
-    //    float x = centerPoint.position.x + randomRadius * Mathf.Cos(angle);
-    //    float z = centerPoint.position.z + randomRadius * Mathf.Sin(angle);
-    //    // Return the random point in world space
-    //    return new Vector3(x, centerPoint.position.y, z);
-    //}
 }

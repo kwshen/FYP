@@ -18,4 +18,20 @@ public static class Position
         //Return the random point in world space
         return new Vector3(x, centerPoint.position.y, z);
     }
+
+    public static bool isValidPosition(Vector3 randomPosition, int avoidAreaMask)
+    {
+        // Check if the position is valid on the NavMesh and avoids undesired areas
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomPosition, out hit, 1.0f, NavMesh.AllAreas))
+        {
+            if ((hit.mask & avoidAreaMask) == 0) // Check that it doesn't belong to the avoid area
+            {
+                randomPosition = hit.position; // Adjust position to the nearest valid NavMesh point
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
 }
