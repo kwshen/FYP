@@ -28,7 +28,6 @@ public class Water_Settings : MonoBehaviour
     //SHEN add
     public float getWaveHeight()
     {
-
         return (waterVolume.GetVector("bounds").y / -2) + transform.position.y + (waterMaterial.GetFloat("_Displacement_Amount") / 3);
     }
 }
