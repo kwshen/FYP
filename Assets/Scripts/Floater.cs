@@ -99,7 +99,7 @@ public class Floater : MonoBehaviour
     void Start()
     {
         // Find the Rigidbody on the parent kayak
-        kayakRigidbody = transform.parent.parent.GetComponent<Rigidbody>();
+        kayakRigidbody = transform.parent.GetComponent<Rigidbody>();
         if (kayakRigidbody == null)
         {
             Debug.LogError("No Rigidbody found on the parent kayak!");
