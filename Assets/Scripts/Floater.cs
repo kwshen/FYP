@@ -94,16 +94,10 @@ public class Floater : MonoBehaviour
     public float floatSpeed = 5.0f; // Speed at which the object floats up and down
     private float waveHeight;
 
-    private Rigidbody kayakRigidbody;
+    public Rigidbody kayakRigidbody;
 
     void Start()
     {
-        // Find the Rigidbody on the parent kayak
-        kayakRigidbody = transform.parent.GetComponent<Rigidbody>();
-        if (kayakRigidbody == null)
-        {
-            Debug.LogError("No Rigidbody found on the parent kayak!");
-        }
 
         if (waterVolumeMaterial == null)
         {
