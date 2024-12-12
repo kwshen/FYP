@@ -18,6 +18,6 @@ public class WaterCrabAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        crabAnimator.SetInteger("state", (int)crabController.currentState);
+       crabAnimator.SetInteger("state", (int)crabController.currentState);
     }
 }

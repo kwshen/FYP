@@ -15,6 +15,7 @@ public class MonsterCollision : MonoBehaviour
     {
         if (!appear && gameObject.CompareTag(appearTag) && other.CompareTag(playerTag))
         {
+            Debug.Log("APPEAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             appear = true;
         }
         else if(!playerDie && gameObject.CompareTag(attackTag) && other.CompareTag(playerTag))
@@ -23,13 +24,21 @@ public class MonsterCollision : MonoBehaviour
         }
         else
         {
-            Debug.Log("collider not found");
+            //Debug.Log("appear" + appear);
+            //Debug.Log("attack" + attack);
+            //Debug.Log("gameObject tag" + gameObject.tag);
+            //Debug.Log("other tag" + other.tag);
         }
     }
 
     public bool getAppear()
     {
         return appear;
+    }
+
+    public void setAppear(bool isAppear)
+    {
+        appear = isAppear;
     }
 
     public bool getAttack()
