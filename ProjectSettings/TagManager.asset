@@ -12,6 +12,9 @@ TagManager:
   - deer
   - terrain
   - Water
+  - SpawnCrabPoint
+  - AppearArea
+  - AttackArea
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - Water
   - UI
   - HeadOnly
-  - 
+  - Terrain
   - 
   - 
   - 

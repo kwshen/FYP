@@ -71,7 +71,6 @@ public class BearController : MonoBehaviour
             Vector3 randomPos = Position.GetRandomPosition(wanderCenterPoint, wanderRadius);
             if (Position.isValidPosition(randomPos, waterAreaMask))
             {
-                Debug.Log("going new pos");
                 agent.SetDestination(randomPos);
 
                 // Small chance of transitioning to sleeping state

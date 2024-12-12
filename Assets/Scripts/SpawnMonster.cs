@@ -6,11 +6,11 @@ public class SpawnMonster : MonoBehaviour
 {
     public GameObject crabPrefab;
     public int spawnRadius = 100;
-    public string tagName = "SpawnPoint";
-    public int maxCrabsInArea = 2;
+    string tagName = "SpawnCrabPoint";
+    public int maxCrabsInArea = 8;
 
     [Header("Monster Spawn Configuration")]
-    public int wanderingCrabCount = 1;  // Number of wandering Crabs per spawn point
+    public int wanderingCrabCount = 1;  // Number of wandedring Crabs per spawn point
     public int standingCrabCount = 1;   // Number of standing Crabs per spawn point
 
     private GameObject[] spawnPointsInScene;
