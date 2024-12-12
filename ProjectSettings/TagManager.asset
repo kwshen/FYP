@@ -9,12 +9,14 @@ TagManager:
   - lb_perchTarget
   - lb_bird
   - SpawnPoint
-  - deer
   - terrain
   - Water
   - SpawnCrabPoint
   - AppearArea
   - AttackArea
+  - MonsterWeaponPart
+  - PlayerGetHitArea
+  - Deer
   layers:
   - Default
   - TransparentFX

@@ -9,26 +9,31 @@ public class MonsterCollision : MonoBehaviour
     string playerTag = "Player";
     bool appear = false;
     bool attack = false;
-    bool playerDie = false;
+    bool onWater = false;
+    bool attackSuccess = false;
 
     private void OnTriggerEnter(Collider other)
-    {
-        if (!appear && gameObject.CompareTag(appearTag) && other.CompareTag(playerTag))
+    {Debug.Log("1" + attackSuccess);
+        if (!appear && gameObject.CompareTag(appearTag) && other.CompareTag(playerTag) && !onWater)
         {
-            Debug.Log("APPEAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             appear = true;
         }
-        else if(!playerDie && gameObject.CompareTag(attackTag) && other.CompareTag(playerTag))
+        else if(!attackSuccess && gameObject.CompareTag(attackTag) && other.CompareTag(playerTag))
         {
             attack = true;
         }
-        else
+        
+        if (onWater)
         {
-            //Debug.Log("appear" + appear);
-            //Debug.Log("attack" + attack);
-            //Debug.Log("gameObject tag" + gameObject.tag);
-            //Debug.Log("other tag" + other.tag);
+            appear = false;
         }
+
+        if(attackSuccess)
+        {
+            
+            attack = false;
+            
+        }Debug.Log("2" + attackSuccess);
     }
 
     public bool getAppear()
@@ -41,13 +46,23 @@ public class MonsterCollision : MonoBehaviour
         appear = isAppear;
     }
 
+    public bool getOnWater()
+    {
+        return onWater;
+    }
+
+    public void setOnWater(bool onWater)
+    {
+        this.onWater = onWater;
+    }
+
     public bool getAttack()
     {
         return attack;
     }
 
-    public void setPlayerDie(bool isPlayerDie)
+    public void setAttackSuccess(bool attackSuccess)
     {
-        this.playerDie = isPlayerDie;
+        this.attackSuccess = attackSuccess;
     }
 }

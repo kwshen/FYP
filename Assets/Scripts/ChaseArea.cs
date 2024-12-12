@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChaseArea : MonoBehaviour
 {
     private List<Transform> targetsInRange = new List<Transform>();
-    string deerTag = "deer";
+    string deerTag = "Deer";
     string playerTag = "Player";
 
     void OnTriggerEnter(Collider other)

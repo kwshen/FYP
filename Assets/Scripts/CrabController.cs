@@ -320,27 +320,20 @@ using UnityEngine.AI;
 
 public class CrabController : MonoBehaviour
 {
-    public enum CrabState { Standing, Wandering, Jumping, Chasing }
+    public enum CrabState { Standing, Wandering, Chasing, Jumping }
 
     [Header("Behavior Settings")]
     public bool isWanderingCrab = true;
     public CrabState currentState = CrabState.Standing;
-
-    [Header("Jumping Parameters")]
-    public float jumpForce = 5f;
-    public float jumpAngle = 60f;
-    public float jumpHeight = 2f;
-    public float jumpCooldown = 2f;
-    private float lastJumpTime;
-
-    private GameObject river;
-    private bool isAboveWater = false;
 
     [Header("Wandering Parameters")]
     public Transform wanderCenterPoint;
     public int wanderRadius = 150;
     public float wanderInterval = 5f;
     private float wanderTimer = 0f;
+
+    private GameObject river;
+    private bool isAboveWater = false;
 
     private NavMeshAgent agent;
     private ChaseArea chaseArea;
@@ -410,6 +403,7 @@ public class CrabController : MonoBehaviour
     void HandleJumping()
     {
         JumpToWater();
+        TransitionToState(CrabState.Standing);
     }
 
     void HandleWandering()
@@ -467,11 +461,11 @@ public class CrabController : MonoBehaviour
         // Check if the monster has reached the water level
         if (transform.position.y >= river.transform.position.y - 0.1 && transform.position.y <= river.transform.position.y + 10)
         {
+            
             ResetCrabSettings();
         }
         else
         {
-            Debug.Log(transform.position.y);
             // If not on water yet, check again after a short delay
             Invoke("CheckIfOnWater", 0.1f);
         }
@@ -481,6 +475,7 @@ public class CrabController : MonoBehaviour
     {
         for (int i = 0; i < monsterCollision.Length; i++)
         {
+            monsterCollision[i].setOnWater(true);
             monsterCollision[i].setAppear(false);
         }
         rb.isKinematic = true;
