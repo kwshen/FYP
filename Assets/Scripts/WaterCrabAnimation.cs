@@ -6,40 +6,41 @@ public class WaterCrabAnimation : MonoBehaviour
 {
     Animator crabAnimator;
     CrabController crabController;
-    MonsterCollision[] monsterCollision;
-    AttackPlayer[] attackPlayer;
+    private string childName = "000";
 
     // Start is called before the first frame update
     void Start()
     {
         crabAnimator = GetComponent<Animator>();
         crabController = GetComponent<CrabController>();
-        monsterCollision = GetComponentsInChildren<MonsterCollision>();
-        attackPlayer = GetComponentsInChildren<AttackPlayer>();
         crabAnimator.SetInteger("state", (int)crabController.currentState);
+        transform.Find(childName).rotation = Quaternion.Euler(transform.eulerAngles.x, 0, transform.eulerAngles.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < monsterCollision.Length; i++)
+
+        if (crabController.getIsJump() == true)
         {
-            if (monsterCollision[i].getAppear())
-            {
-                crabAnimator.SetTrigger("Appear");
-                break;
-            };
+            
+            crabAnimator.SetTrigger("Appear");
         }
-        
-        for (int i = 0; i < monsterCollision.Length; i++)
+           
+        else if (crabController.getIsAttack() == true)
         {
-            if (monsterCollision[i].getAttack())
-            {
-                crabAnimator.SetTrigger("Attack");
-                break;
-            };
+            
+            crabAnimator.SetTrigger("Attack");
+        }
+        else
+        {
+            crabAnimator.SetInteger("state", (int)crabController.currentState);
         }
 
-        crabAnimator.SetInteger("state", (int)crabController.currentState);
     }
+
+
 }
+
+
+

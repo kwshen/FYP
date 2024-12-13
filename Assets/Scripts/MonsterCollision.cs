@@ -13,27 +13,26 @@ public class MonsterCollision : MonoBehaviour
     bool attackSuccess = false;
 
     private void OnTriggerEnter(Collider other)
-    {Debug.Log("1" + attackSuccess);
-        if (!appear && gameObject.CompareTag(appearTag) && other.CompareTag(playerTag) && !onWater)
+    {
+        if (appear == false && gameObject.CompareTag(appearTag) && other.CompareTag(playerTag) && onWater == false)
         {
+            
             appear = true;
         }
-        else if(!attackSuccess && gameObject.CompareTag(attackTag) && other.CompareTag(playerTag))
-        {
+
+        Debug.Log("game object detect = " + (gameObject.CompareTag(attackTag) && !other.CompareTag(playerTag)));
+        Debug.Log("attack success = " + attackSuccess);
+        if(attackSuccess == false && gameObject.CompareTag(attackTag) && other.CompareTag(playerTag))
+        {//Debug.Log("onw tag " + gameObject.tag);
+        //    Debug.Log("other tag " + other.tag);
             attack = true;
         }
-        
-        if (onWater)
+        //if attack area no collide with player
+        else if((gameObject.CompareTag(attackTag) && !other.CompareTag(playerTag)) || attackSuccess == false)
         {
-            appear = false;
-        }
-
-        if(attackSuccess)
-        {
-            
             attack = false;
-            
-        }Debug.Log("2" + attackSuccess);
+        }
+ 
     }
 
     public bool getAppear()
@@ -64,5 +63,10 @@ public class MonsterCollision : MonoBehaviour
     public void setAttackSuccess(bool attackSuccess)
     {
         this.attackSuccess = attackSuccess;
+    }
+
+    public bool getAttackSuccess()
+    {
+        return attackSuccess;
     }
 }

@@ -320,7 +320,7 @@ using UnityEngine.AI;
 
 public class CrabController : MonoBehaviour
 {
-    public enum CrabState { Standing, Wandering, Chasing, Jumping }
+    public enum CrabState { Standing, Wandering, Chasing, Jumping, Attacking }
 
     [Header("Behavior Settings")]
     public bool isWanderingCrab = true;
@@ -333,7 +333,6 @@ public class CrabController : MonoBehaviour
     private float wanderTimer = 0f;
 
     private GameObject river;
-    private bool isAboveWater = false;
 
     private NavMeshAgent agent;
     private ChaseArea chaseArea;
@@ -341,6 +340,9 @@ public class CrabController : MonoBehaviour
     private int waterAreaMask;
     private Transform nearestTarget;
     private MonsterCollision[] monsterCollision;
+
+    private bool isAttack = false;
+    private bool isJump = false;
 
 
 
@@ -377,7 +379,24 @@ public class CrabController : MonoBehaviour
                 TransitionToState(CrabState.Jumping);
                 break;
             }
+            else
+            {
+                isJump = false;
+            }
+
+            //attackSuccess default is false, !attackSuccess == true
+            if (monsterCollision[i].getAttack() == true && monsterCollision[i].getAttackSuccess() == false)
+            {
+                isAttack = true;
+                break;
+            }
+            else
+            {
+                isAttack = false;
+            }
+
         }
+
 
 
         switch (currentState)
@@ -402,8 +421,22 @@ public class CrabController : MonoBehaviour
 
     void HandleJumping()
     {
-        JumpToWater();
-        TransitionToState(CrabState.Standing);
+        float heightNeedToJump = river.transform.position.y - gameObject.transform.position.y;
+        
+        foreach (var collision in monsterCollision)
+        {
+            if (collision != null && collision.getAppear())
+            {
+                isJump = true;
+                agent.enabled = false;
+                rb.isKinematic = false;
+                rb.AddForce(new Vector3(0, heightNeedToJump + 1, 0), ForceMode.Impulse);
+                Invoke("CheckIfOnWater", Mathf.Sqrt(2 * heightNeedToJump / Physics.gravity.magnitude) / 3);
+                break;
+            }
+        }
+
+        //TransitionToState(CrabState.Standing);
     }
 
     void HandleWandering()
@@ -423,11 +456,14 @@ public class CrabController : MonoBehaviour
                 agent.SetDestination(randomPos);
             }
         }
+
+        //TransitionToState(CrabState.Standing);
     }
 
     void HandleStanding()
     {
         // Optional: Add standing behavior if needed
+        //TransitionToState(CrabState.Wandering);
     }
 
     void TransitionToState(CrabState newState)
@@ -436,33 +472,14 @@ public class CrabController : MonoBehaviour
         currentState = newState;
     }
 
-    void JumpToWater()
-    {
-        float heightNeedToJump = river.transform.position.y - gameObject.transform.position.y;
-
-        if (!isAboveWater)
-        {
-            foreach (var collision in monsterCollision)
-            {
-                if (collision != null && collision.getAppear())
-                {
-                    agent.enabled = false;
-                    rb.isKinematic = false;
-                    rb.AddForce(new Vector3(0, heightNeedToJump + 1, 0), ForceMode.Impulse);
-                    Invoke("CheckIfOnWater", Mathf.Sqrt(2 * heightNeedToJump / Physics.gravity.magnitude) / 3);
-                    break;
-                }
-            }
-        }
-    }
-
     private void CheckIfOnWater()
     {
         // Check if the monster has reached the water level
         if (transform.position.y >= river.transform.position.y - 0.1 && transform.position.y <= river.transform.position.y + 10)
         {
-            
+
             ResetCrabSettings();
+            isJump = false;
         }
         else
         {
@@ -481,4 +498,17 @@ public class CrabController : MonoBehaviour
         rb.isKinematic = true;
         agent.enabled = true;
     }
+
+    public bool getIsAttack()
+    {
+        return isAttack;
+    }
+    public bool getIsJump()
+    {
+        return isJump;
+    }
+
 }
+
+
+//=====================================================================================================================================

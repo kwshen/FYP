@@ -1096,7 +1096,8 @@ Transform:
   m_LocalPosition: {x: -0.20850185, y: -0.00000008940697, z: -7.1054274e-15}
   m_LocalScale: {x: 0.89151603, y: 0.89151573, z: 0.8915159}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6658356520778771046}
   m_Father: {fileID: 4949457863418302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1477664101135458
@@ -1263,7 +1264,6 @@ Transform:
   - {fileID: 4649169176741508}
   - {fileID: 4966627605589538}
   - {fileID: 2787373352558865068}
-  - {fileID: 6658356520778771046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9070537124315587445
@@ -1301,6 +1301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isWanderingCrab: 1
   currentState: 0
+  wanderCenterPoint: {fileID: 0}
   wanderRadius: 150
   wanderInterval: 5
 --- !u!114 &3029985577139612672
@@ -2939,12 +2940,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6035171501973671967}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.5251212, y: 0.47354826, z: -0.52512103, w: -0.47354794}
+  m_LocalPosition: {x: 0.4460411, y: 0.18336426, z: 0}
+  m_LocalScale: {x: 1.1216851, y: 1.121685, z: 1.1216854}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4974263707317260}
+  m_Father: {fileID: 4849984050191854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4490774939312495824
 BoxCollider:
