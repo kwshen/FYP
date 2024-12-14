@@ -16,19 +16,15 @@ public class MonsterCollision : MonoBehaviour
     {
         if (appear == false && gameObject.CompareTag(appearTag) && other.CompareTag(playerTag) && onWater == false)
         {
-            
             appear = true;
         }
 
-        Debug.Log("game object detect = " + (gameObject.CompareTag(attackTag) && !other.CompareTag(playerTag)));
-        Debug.Log("attack success = " + attackSuccess);
         if(attackSuccess == false && gameObject.CompareTag(attackTag) && other.CompareTag(playerTag))
-        {//Debug.Log("onw tag " + gameObject.tag);
-        //    Debug.Log("other tag " + other.tag);
+        {
             attack = true;
         }
         //if attack area no collide with player
-        else if((gameObject.CompareTag(attackTag) && !other.CompareTag(playerTag)) || attackSuccess == false)
+        else if((gameObject.CompareTag(attackTag) && !other.CompareTag(playerTag)) || attackSuccess == true)
         {
             attack = false;
         }

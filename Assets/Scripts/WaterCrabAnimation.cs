@@ -13,7 +13,7 @@ public class WaterCrabAnimation : MonoBehaviour
     {
         crabAnimator = GetComponent<Animator>();
         crabController = GetComponent<CrabController>();
-        crabAnimator.SetInteger("state", (int)crabController.currentState);
+        //crabAnimator.SetInteger("state", (int)crabController.currentState);
         transform.Find(childName).rotation = Quaternion.Euler(transform.eulerAngles.x, 0, transform.eulerAngles.z);
     }
 
@@ -23,18 +23,31 @@ public class WaterCrabAnimation : MonoBehaviour
 
         if (crabController.getIsJump() == true)
         {
-            
+
             crabAnimator.SetTrigger("Appear");
         }
-           
+
         else if (crabController.getIsAttack() == true)
         {
-            
+
             crabAnimator.SetTrigger("Attack");
+        }
+        //else
+        //{
+        //    crabAnimator.SetInteger("state", (int)crabController.currentState);
+        //}
+
+        if (crabController.getIsChasing() == true)
+        {
+            crabAnimator.SetInteger("state", 2);
+        }
+        else if (crabController.isMoving() == true)
+        {
+            crabAnimator.SetInteger("state", 1);
         }
         else
         {
-            crabAnimator.SetInteger("state", (int)crabController.currentState);
+            crabAnimator.SetInteger("state", 0);
         }
 
     }
