@@ -221,6 +221,8 @@ public class MainMenuManager : MonoBehaviour
     private Color originalButtonColor = new Color(0f, 0.78f, 1f); // 00C8FF in RGB
     private Color highlightedColor = new Color(0f, 0.6f, 0.8f); // Darker shade for highlight
 
+    public SceneTransitionManager transitionManager;
+
     void Start()
     {
         // Initialize panels
@@ -319,22 +321,12 @@ public class MainMenuManager : MonoBehaviour
             // Load the selected scene
             if (!string.IsNullOrEmpty(sceneName))
             {
-                Debug.Log("load scene");
-                StartCoroutine(LoadSceneAsync(sceneName));
+                //StartCoroutine(LoadSceneAsync(sceneName));
+                transitionManager.GoToSceneAsync(sceneName);
             }
         }
     }
 
-    private IEnumerator LoadSceneAsync(string sceneName)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-
-        // Optionally, display a loading screen here.
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-    }
 
     private void ResetButtonColors()
     {
