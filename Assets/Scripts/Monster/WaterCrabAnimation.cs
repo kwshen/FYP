@@ -6,15 +6,12 @@ public class WaterCrabAnimation : MonoBehaviour
 {
     Animator crabAnimator;
     CrabController crabController;
-    private string childName = "000";
 
     // Start is called before the first frame update
     void Start()
     {
-        crabAnimator = GetComponent<Animator>();
-        crabController = GetComponent<CrabController>();
-        //crabAnimator.SetInteger("state", (int)crabController.currentState);
-        transform.Find(childName).rotation = Quaternion.Euler(transform.eulerAngles.x, 0, transform.eulerAngles.z);
+        crabAnimator = gameObject.GetComponent<Animator>();
+        crabController = gameObject.GetComponent<CrabController>();
     }
 
     // Update is called once per frame
@@ -43,7 +40,7 @@ public class WaterCrabAnimation : MonoBehaviour
             crabAnimator.SetInteger("state", 2);
         }
         //walk animation
-        else if (crabController.isMoving() == true)
+        else if (crabController.getIsWandering() == true)
         {
             crabAnimator.SetInteger("state", 1);
         }

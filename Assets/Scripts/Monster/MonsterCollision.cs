@@ -28,7 +28,6 @@ public class MonsterCollision : MonoBehaviour
         {
             attack = false;
         }
- 
     }
 
     public bool getAppear()

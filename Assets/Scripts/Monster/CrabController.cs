@@ -7,8 +7,7 @@ using UnityEngine.AI;
 public class CrabController : MonoBehaviour
 {
 
-    [Header("Behavior Settings")]
-    public bool isWanderingCrab = true;
+
 
     [Header("Wandering Parameters")]
     public Transform wanderCenterPoint;
@@ -21,6 +20,7 @@ public class CrabController : MonoBehaviour
     private NavMeshAgent agent;
     private Rigidbody rb;
     private int waterAreaMask;
+    private MonsterCollision[] monsterCollision;
     private MonsterCollision attackCollision;
     private MonsterCollision appearCollision;
     private HeartRateManager heartRateManager;
@@ -34,9 +34,9 @@ public class CrabController : MonoBehaviour
     private bool onWater = false;
 
     private string heartRateManagerName = "HeartrateManager";
-    private string playerName = "Kayak";
-    private string appearAreaName = "appearArea";
-    private string attackAreaName = "attackArea";
+    private string playerName = "Player";
+    private string appearAreaName = "AppearArea";
+    private string attackAreaName = "AttackArea";
     private string waterAreaMaskName = "Water";
     private Vector3 crabPreviousPosition;
 
@@ -49,13 +49,14 @@ public class CrabController : MonoBehaviour
 
         river = GameObject.FindGameObjectWithTag(waterAreaMaskName);
 
-        wanderCenterPoint = transform;
-        agent = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
-        attackCollision = GameObject.Find(attackAreaName).GetComponent<MonsterCollision>();
-        appearCollision = GameObject.Find(appearAreaName).GetComponent<MonsterCollision>();
-        heartRateManager = GameObject.Find(heartRateManagerName).GetComponent<HeartRateManager>();
-        Player = GameObject.Find(playerName);
+        wanderCenterPoint = gameObject.transform;
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        rb = gameObject.GetComponent<Rigidbody>();
+        monsterCollision = gameObject.GetComponentsInChildren<MonsterCollision>();
+        attackCollision = monsterCollision[0].GetComponent<MonsterCollision>();
+        appearCollision = monsterCollision[1].GetComponent<MonsterCollision>();
+        heartRateManager = GameObject.FindGameObjectWithTag(heartRateManagerName).GetComponent<HeartRateManager>();
+        Player = GameObject.FindGameObjectWithTag(playerName);
 
         waterAreaMask = 1 << NavMesh.GetAreaFromName(waterAreaMaskName);
         agent.areaMask = NavMesh.AllAreas;
@@ -117,7 +118,7 @@ public class CrabController : MonoBehaviour
         }
 
         //if is wander crab and is not chasing
-        if (isWanderingCrab == true && isChasing == false)
+        if (/*isWanderingCrab == true && */ isChasing == false && isAttack == false)
         {
             isWandering = true;
             Wander();
@@ -242,4 +243,6 @@ public class CrabController : MonoBehaviour
     {
         return isWandering;
     }
+
+
 }

@@ -205,6 +205,9 @@ using System.Collections;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public GameObject leftRayInteractor;
+    public GameObject rightRayInteractor;
+
     public GameObject startPanel;
     public GameObject gameModePanel;
     public GameObject levelPanel;
@@ -227,6 +230,9 @@ public class MainMenuManager : MonoBehaviour
     {
         // Initialize panels
         ShowPanel(startPanel);
+
+        leftRayInteractor.SetActive(true);
+           rightRayInteractor.SetActive(true);
 
         // Disable buttons initially
         nextButtonGameMode.interactable = false;
