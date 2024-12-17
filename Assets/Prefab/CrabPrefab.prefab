@@ -1,5 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &68377675334794111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935458269275606971}
+  - component: {fileID: 1067276541210445497}
+  - component: {fileID: 8096173318872417563}
+  m_Layer: 0
+  m_Name: attackPartCollision
+  m_TagString: MonsterWeaponPart
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1935458269275606971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68377675334794111}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000044703473, y: 0.000000081956365, z: 0.00000013038513, w: 1}
+  m_LocalPosition: {x: 0.000013183346, y: 0.11199594, z: -0.000017887789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7322306451049283391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1067276541210445497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68377675334794111}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8096173318872417563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68377675334794111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb548c4213081a4ea003e4f3470816b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &102089793727074377
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,11 +452,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 964305655889305215}
-  - component: {fileID: 4324115492334012245}
-  - component: {fileID: 5909194726608870418}
   m_Layer: 0
   m_Name: bone L Hand
-  m_TagString: MonsterWeaponPart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,42 +471,10 @@ Transform:
   m_LocalPosition: {x: -0.2722327, y: -0.042367816, z: 0.060482055}
   m_LocalScale: {x: 1.155, y: 1.2473273, z: 0.45760545}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7966951635313020015}
   m_Father: {fileID: 2939433250252435840}
   m_LocalEulerAnglesHint: {x: -19.205854, y: 1.3291956, z: 44.655987}
---- !u!65 &4324115492334012245
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582027731265374983}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: -0.15, y: 0.2, z: -0.1}
---- !u!114 &5909194726608870418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582027731265374983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb548c4213081a4ea003e4f3470816b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1659298600212254681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,13 +1109,79 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.13634223, y: 0.82390195, z: 0.21423505, w: 0.5066555}
   m_LocalPosition: {x: -0.17730725, y: 0.3002611, z: -0.25989532}
-  m_LocalScale: {x: -1, y: -1, z: -1.0000001}
+  m_LocalScale: {x: -1, y: -0.9676, z: -1.3987896}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4889142037528234690}
   - {fileID: 1089372154259919533}
   m_Father: {fileID: 1145304016623948628}
   m_LocalEulerAnglesHint: {x: -12.407311, y: 113.84403, z: 26.892357}
+--- !u!1 &3865669765841407591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7966951635313020015}
+  - component: {fileID: 3188926989804648746}
+  - component: {fileID: 8460289516615547147}
+  m_Layer: 0
+  m_Name: attackPartCollision
+  m_TagString: MonsterWeaponPart
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7966951635313020015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865669765841407591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 964305655889305215}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3188926989804648746
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865669765841407591}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &8460289516615547147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865669765841407591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb548c4213081a4ea003e4f3470816b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3967534977494074769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,7 +1321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6184511925354855477}
   - component: {fileID: 4808916034979871571}
-  - component: {fileID: 8672090784541028213}
+  - component: {fileID: 2600490636448533154}
   m_Layer: 0
   m_Name: attackArea
   m_TagString: AttackArea
@@ -1265,9 +1363,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.5, y: 2.5, z: 5}
+  m_Size: {x: 4.5, y: 3, z: 5}
   m_Center: {x: 0, y: 0.4, z: -0.7}
---- !u!114 &8672090784541028213
+--- !u!114 &2600490636448533154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1276,7 +1374,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4384170018120180297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0b9e3db3e1ff2479b38599f16430a2, type: 3}
+  m_Script: {fileID: 11500000, guid: ae5776eb9804ea644bb29a3b4ec99626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4413983166994796724
@@ -2153,11 +2251,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7322306451049283391}
-  - component: {fileID: 3355723700796768432}
-  - component: {fileID: 4297915058818903221}
   m_Layer: 0
   m_Name: bone R Hand
-  m_TagString: MonsterWeaponPart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2174,42 +2270,10 @@ Transform:
   m_LocalPosition: {x: -0.27223274, y: -0.042367816, z: 0.060482055}
   m_LocalScale: {x: 1.2552004, y: 1.2780873, z: 0.5783348}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1935458269275606971}
   m_Father: {fileID: 8097798350320891558}
   m_LocalEulerAnglesHint: {x: -19.205816, y: 1.3292266, z: 57.57116}
---- !u!65 &3355723700796768432
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7424708195542864238}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: -0.15, y: 0.2, z: -0.1}
---- !u!114 &4297915058818903221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7424708195542864238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb548c4213081a4ea003e4f3470816b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7426227125946196854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,7 +2552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5321241229011201254}
   - component: {fileID: 3179528564311437067}
-  - component: {fileID: 3165975941651026143}
+  - component: {fileID: 9007981159362405794}
   m_Layer: 0
   m_Name: appearArea
   m_TagString: AppearArea
@@ -2534,7 +2598,7 @@ CapsuleCollider:
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 5, z: 0}
---- !u!114 &3165975941651026143
+--- !u!114 &9007981159362405794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2543,7 +2607,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8040056238044370126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0b9e3db3e1ff2479b38599f16430a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 234d2ddc09a402a4f9c07056141e67b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8241888780062220869

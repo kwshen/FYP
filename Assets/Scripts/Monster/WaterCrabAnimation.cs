@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WaterCrabAnimation : MonoBehaviour
 {
-    Animator crabAnimator;
-    CrabController crabController;
+    private Animator crabAnimator;
+    private CrabController crabController;
 
     // Start is called before the first frame update
     void Start()

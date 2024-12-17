@@ -17,10 +17,8 @@ public class CrabController : MonoBehaviour
 
     private NavMeshAgent agent;
     private Rigidbody rb;
-    private int waterAreaMask;
-    private MonsterCollision[] monsterCollision;
-    private MonsterCollision attackCollision;
-    private MonsterCollision appearCollision;
+    private AttackAreaCollision attackCollision;
+    private AppearAreaCollision appearCollision;
     private HeartRateManager heartRateManager;
     private GameObject Player;
 
@@ -33,8 +31,6 @@ public class CrabController : MonoBehaviour
 
     private string heartRateManagerName = "HeartrateManager";
     private string playerName = "Player";
-    private string appearAreaName = "AppearArea";
-    private string attackAreaName = "AttackArea";
     private string waterAreaMaskName = "Water";
     private Vector3 crabPreviousPosition;
 
@@ -50,13 +46,11 @@ public class CrabController : MonoBehaviour
         wanderCenterPoint = gameObject.transform;
         agent = gameObject.GetComponent<NavMeshAgent>();
         rb = gameObject.GetComponent<Rigidbody>();
-        monsterCollision = gameObject.GetComponentsInChildren<MonsterCollision>();
-        attackCollision = monsterCollision[0].GetComponent<MonsterCollision>();
-        appearCollision = monsterCollision[1].GetComponent<MonsterCollision>();
+        attackCollision = gameObject.GetComponentInChildren<AttackAreaCollision>();
+        appearCollision = gameObject.GetComponentInChildren<AppearAreaCollision>();
         heartRateManager = GameObject.FindGameObjectWithTag(heartRateManagerName).GetComponent<HeartRateManager>();
         Player = GameObject.FindGameObjectWithTag(playerName);
 
-        waterAreaMask = 1 << NavMesh.GetAreaFromName(waterAreaMaskName);
         agent.areaMask = NavMesh.AllAreas;
 
         // Disable rigidbody physics initially if using NavMesh
@@ -87,11 +81,12 @@ public class CrabController : MonoBehaviour
         //attack
         if (attackCollision.getAttack() == true)
         {
-            gameObject.transform.LookAt(Player.transform.position);
+            agent.enabled = false;
             isAttack = true;
         }
         else
         {
+            agent.enabled = true;
             isAttack = false;
         }
 
