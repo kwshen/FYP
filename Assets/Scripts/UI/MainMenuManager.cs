@@ -232,7 +232,7 @@ public class MainMenuManager : MonoBehaviour
         ShowPanel(startPanel);
 
         leftRayInteractor.SetActive(true);
-           rightRayInteractor.SetActive(true);
+        rightRayInteractor.SetActive(true);
 
         // Disable buttons initially
         nextButtonGameMode.interactable = false;

@@ -7,8 +7,6 @@ using UnityEngine.AI;
 public class CrabController : MonoBehaviour
 {
 
-
-
     [Header("Wandering Parameters")]
     public Transform wanderCenterPoint;
     public int wanderRadius = 150;
@@ -89,6 +87,7 @@ public class CrabController : MonoBehaviour
         //attack
         if (attackCollision.getAttack() == true)
         {
+            gameObject.transform.LookAt(Player.transform.position);
             isAttack = true;
         }
         else

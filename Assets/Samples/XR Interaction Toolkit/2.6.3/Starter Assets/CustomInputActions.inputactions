@@ -19,7 +19,7 @@
                 {
                     "name": "",
                     "id": "4ed9f0bc-2f16-4bdc-893f-e7b8dc5148a0",
-                    "path": "<OculusTouchController>/secondaryButton",
+                    "path": "<OculusTouchController>/menu",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
