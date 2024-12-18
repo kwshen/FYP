@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterCrabAnimation : MonoBehaviour
+public class CrabAnimation : MonoBehaviour
 {
-    private Animator crabAnimator;
-    private CrabController crabController;
+    protected Animator crabAnimator;
+    protected CrabController crabController;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         crabAnimator = gameObject.GetComponent<Animator>();
         crabController = gameObject.GetComponent<CrabController>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
 
         if (crabController.getIsJump() == true)
@@ -26,7 +26,8 @@ public class WaterCrabAnimation : MonoBehaviour
 
         else if (crabController.getIsAttack() == true)
         {
-
+            //transform.Rotate(0f, 180f, 0f);
+            transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
             crabAnimator.SetTrigger("Attack");
         }
         //else

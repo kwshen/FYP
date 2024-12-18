@@ -8,17 +8,18 @@ public class CrabController : MonoBehaviour
 {
 
     [Header("Wandering Parameters")]
-    public Transform wanderCenterPoint;
+    protected Transform wanderCenterPoint;
     public int wanderRadius = 150;
     public float wanderInterval = 5f;
     private float wanderTimer = 0f;
 
     private GameObject river;
 
-    private NavMeshAgent agent;
+    protected NavMeshAgent agent;
     private Rigidbody rb;
     private AttackAreaCollision attackCollision;
     private AppearAreaCollision appearCollision;
+    private AppearAndChase appearAndChaseScript;
     private HeartRateManager heartRateManager;
     private GameObject Player;
 
@@ -32,13 +33,12 @@ public class CrabController : MonoBehaviour
     private string heartRateManagerName = "HeartrateManager";
     private string playerName = "Player";
     private string waterAreaMaskName = "Water";
-    private Vector3 crabPreviousPosition;
 
     //jump
     private float heightNeedToJump;
 
 
-    void Start()
+    protected void Start()
     {
 
         river = GameObject.FindGameObjectWithTag(waterAreaMaskName);
@@ -48,6 +48,7 @@ public class CrabController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         attackCollision = gameObject.GetComponentInChildren<AttackAreaCollision>();
         appearCollision = gameObject.GetComponentInChildren<AppearAreaCollision>();
+        appearAndChaseScript = gameObject.GetComponentInChildren<AppearAndChase>();
         heartRateManager = GameObject.FindGameObjectWithTag(heartRateManagerName).GetComponent<HeartRateManager>();
         Player = GameObject.FindGameObjectWithTag(playerName);
 
@@ -59,7 +60,6 @@ public class CrabController : MonoBehaviour
             rb.isKinematic = true;
         }
 
-        crabPreviousPosition = transform.position;
     }
 
     void Update()
@@ -92,8 +92,8 @@ public class CrabController : MonoBehaviour
 
 
         //chasing
-        if (heartRateManager.getHeartrate() >= 85)
-        //if (85 >= 85 && isAttack == false)
+        //if (heartRateManager.getHeartrate() >= 85)
+        if (85 >= 85 && isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
         {
             isChasing = true;
             if (onWater == false)
@@ -122,8 +122,6 @@ public class CrabController : MonoBehaviour
             isWandering = false;
         }
 
-
-        crabPreviousPosition = transform.position;
     }
 
     void Jump()
@@ -134,7 +132,7 @@ public class CrabController : MonoBehaviour
 
     }
 
-    void Wander()
+    protected void Wander()
     {
         wanderTimer += Time.deltaTime;
         bool isAtDestination;
@@ -147,12 +145,9 @@ public class CrabController : MonoBehaviour
                 wanderTimer = 0f;
                 Vector3 randomPos = Position.GetRandomPosition(wanderCenterPoint, wanderRadius);
 
-                // Use the isValidPosition method to check for valid underwater positioning
-                //if (Position.isValidPosition(randomPos, waterAreaMask))
-                //{
-                Debug.Log("Moving to new underwater position");
+                
                 agent.SetDestination(randomPos);
-                //}
+                
             }
         }
     }
@@ -210,12 +205,6 @@ public class CrabController : MonoBehaviour
             rb.isKinematic = false;
             agent.enabled = false;
         }
-    }
-
-    public bool isMoving()
-    {
-        //return true when is moving
-        return crabPreviousPosition != transform.position;
     }
 
     public bool getIsAttack()
