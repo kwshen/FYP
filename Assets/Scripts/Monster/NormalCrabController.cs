@@ -22,4 +22,14 @@ public class NormalCrabController : CrabController
         // Set up basic wandering parameters
         agent.areaMask = UnityEngine.AI.NavMesh.AllAreas;
     }
+
+    protected override void specialMove()
+    {
+        
+    }
+
+    protected override void ResetStatus()
+    {
+
+    }
 }

@@ -18,10 +18,10 @@ public class CrabAnimation : MonoBehaviour
     protected void Update()
     {
 
-        if (crabController.getIsJump() == true)
+        if (crabController.getIsSpecialMoving() == true)
         {
 
-            crabAnimator.SetTrigger("Appear");
+            crabAnimator.SetTrigger("SpecialMove");
         }
 
         else if (crabController.getIsAttack() == true)
@@ -30,10 +30,6 @@ public class CrabAnimation : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
             crabAnimator.SetTrigger("Attack");
         }
-        //else
-        //{
-        //    crabAnimator.SetInteger("state", (int)crabController.currentState);
-        //}
 
         //run animation
         if (crabController.getIsChasing() == true)

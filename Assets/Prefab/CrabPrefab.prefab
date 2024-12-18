@@ -2087,8 +2087,8 @@ GameObject:
   - component: {fileID: 8917286937178061160}
   - component: {fileID: 7489216460057133648}
   - component: {fileID: 2630323486129542471}
-  - component: {fileID: 6069563802036375691}
-  - component: {fileID: 1989100143208001107}
+  - component: {fileID: 2172118831430722729}
+  - component: {fileID: 7069824327662542211}
   m_Layer: 0
   m_Name: CrabPrefab
   m_TagString: Untagged
@@ -2185,7 +2185,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &6069563802036375691
+--- !u!114 &2172118831430722729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2194,13 +2194,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7033521657119159349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea2ee096da857e42817cc58ec55a179, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cae8cc6e2d75a340b293754fdcb7500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderCenterPoint: {fileID: 0}
   wanderRadius: 150
   wanderInterval: 5
---- !u!114 &1989100143208001107
+--- !u!114 &7069824327662542211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2209,7 +2208,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7033521657119159349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a7f4952a00ad94782872c104683898, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dda2a34eddac284299ecb3fa1df3951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7148383663379712783

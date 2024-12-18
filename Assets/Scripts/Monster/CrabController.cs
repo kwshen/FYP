@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CrabController : MonoBehaviour
+public abstract class CrabController : MonoBehaviour
 {
 
     [Header("Wandering Parameters")]
@@ -13,29 +13,29 @@ public class CrabController : MonoBehaviour
     public float wanderInterval = 5f;
     private float wanderTimer = 0f;
 
-    private GameObject river;
+    protected GameObject river;
 
     protected NavMeshAgent agent;
-    private Rigidbody rb;
+    protected Rigidbody rb;
     private AttackAreaCollision attackCollision;
-    private AppearAreaCollision appearCollision;
+    protected AppearAreaCollision appearCollision;
     private AppearAndChase appearAndChaseScript;
     private HeartRateManager heartRateManager;
     private GameObject Player;
 
     //check for change state and the animation
     private bool isAttack = false;
-    private bool isJump = false;
+    protected bool isSpecialMoving = false;
     private bool isChasing = false;
     private bool isWandering = true;
-    private bool onWater = false;
+    protected bool onWater = false;
 
     private string heartRateManagerName = "HeartrateManager";
     private string playerName = "Player";
     private string waterAreaMaskName = "Water";
 
     //jump
-    private float heightNeedToJump;
+    protected float heightNeedToJump;
 
 
     protected void Start()
@@ -62,20 +62,20 @@ public class CrabController : MonoBehaviour
 
     }
 
-    void Update()
+    protected void Update()
     {
 
         //appear
         if (appearCollision.getAppear() == true)
         {
-            isJump = true;
+            isSpecialMoving = true;
             disableAgent();
-            Jump();
-            ResetJumpStatus();
+            specialMove();
+            ResetStatus();
         }
         else
         {
-            isJump = false;
+            isSpecialMoving = false;
         }
 
         //attack
@@ -98,10 +98,10 @@ public class CrabController : MonoBehaviour
             isChasing = true;
             if (onWater == false)
             {
-                isJump = true;
+                isSpecialMoving = true;
                 disableAgent();
-                Jump();
-                ResetJumpStatus();
+                specialMove();
+                ResetStatus();
             }
 
             Chase();
@@ -124,14 +124,7 @@ public class CrabController : MonoBehaviour
 
     }
 
-    void Jump()
-    {
-        heightNeedToJump = river.transform.position.y - gameObject.transform.position.y;
-
-        rb.AddForce(new Vector3(0, heightNeedToJump + 1, 0), ForceMode.Impulse);
-
-    }
-
+    protected abstract void specialMove();
     protected void Wander()
     {
         wanderTimer += Time.deltaTime;
@@ -152,7 +145,7 @@ public class CrabController : MonoBehaviour
         }
     }
 
-    void Chase()
+    private void Chase()
     {
         if (agent != null && agent.enabled == true && agent.isOnNavMesh == true)
         {
@@ -162,19 +155,9 @@ public class CrabController : MonoBehaviour
 
     }
 
-    private void ResetJumpStatus()
-    {
-        if (isOnWater())
-        {
-            appearCollision.setOnWater(true);
-            appearCollision.setAppear(false);
-            enableAgent();
-            isJump = false;
-            onWater = true;
-        }
-    }
+    protected abstract void ResetStatus();
 
-    private bool isOnWater()
+    protected bool isOnWater()
     {
         // Check if the monster has reached the water level
         if (transform.position.y >= river.transform.position.y - 0.1 && transform.position.y <= river.transform.position.y + 10)
@@ -189,7 +172,7 @@ public class CrabController : MonoBehaviour
         return false;
     }
 
-    private void enableAgent()
+    protected void enableAgent()
     {
         if (agent != null)
         {
@@ -198,7 +181,7 @@ public class CrabController : MonoBehaviour
         }
     }
 
-    private void disableAgent()
+    protected void disableAgent()
     {
         if (agent != null)
         {
@@ -212,9 +195,9 @@ public class CrabController : MonoBehaviour
         return isAttack;
     }
 
-    public bool getIsJump()
+    public bool getIsSpecialMoving()
     {
-        return isJump;
+        return isSpecialMoving;
     }
 
     public bool getIsChasing()
