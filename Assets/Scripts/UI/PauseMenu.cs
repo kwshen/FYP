@@ -64,7 +64,6 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1;
-        Debug.Log("load main menu");
         transitionManager.GoToSceneAsync(mainMenuScene);
     }
 
