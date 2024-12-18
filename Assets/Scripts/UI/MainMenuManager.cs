@@ -117,7 +117,7 @@ public class MainMenuManager : MonoBehaviour
             if (selectedGameMode == "Casual")
             {
                 if (selectedLevel == "Level1")
-                    sceneName = "Casual_Level1"; // Replace with actual scene name
+                    sceneName = "Casual_Level_1"; // Replace with actual scene name
                 else if (selectedLevel == "Level2")
                     sceneName = "Casual_Level2"; // Replace with actual scene name
             }

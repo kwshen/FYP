@@ -13,18 +13,18 @@ public class SceneTransitionManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI progressValue;
 
 
-    //public void GoToScene(string sceneName)
-    //{
-    //    StartCoroutine(GoToSceneRoutine(sceneName));
-    //}
+    public void GoToScene(string sceneName)
+    {
+        StartCoroutine(GoToSceneRoutine(sceneName));
+    }
 
-    //IEnumerator GoToSceneRoutine(string sceneName)
-    //{
-    //    fadeScreen.FadeOut();
-    //    yield return new WaitForSeconds(fadeScreen.fadeDuration);
+    IEnumerator GoToSceneRoutine(string sceneName)
+    {
+        fadeScreen.FadeOut();
+        yield return new WaitForSeconds(fadeScreen.fadeDuration);
 
-    //    //launch the new scene
-    //}
+        //launch the new scene
+    }
 
     private void Awake()
     {
@@ -33,7 +33,6 @@ public class SceneTransitionManager : MonoBehaviour
 
     public void GoToSceneAsync(string sceneName)
     {
-        Debug.Log("load scene in gotosceneasync");
         StartCoroutine(GoToSceneAsyncRoutine(sceneName));
     }
 

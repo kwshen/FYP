@@ -2090,7 +2090,7 @@ GameObject:
   - component: {fileID: 2172118831430722729}
   - component: {fileID: 7069824327662542211}
   m_Layer: 0
-  m_Name: CrabPrefab
+  m_Name: WaterCrabPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
