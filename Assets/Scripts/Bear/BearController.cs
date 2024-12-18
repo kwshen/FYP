@@ -18,7 +18,6 @@ public class BearController : MonoBehaviour
     int waterAreaMask;
     bool isAtDestination;
     public float standDuration = 3f; // Time to stand idle before wandering
-    private float standTimer = 0f;  // Timer for standing
 
     void Start()
     {

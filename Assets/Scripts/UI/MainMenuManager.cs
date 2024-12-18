@@ -2,17 +2,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [Header("Interactor")]
     public GameObject leftRayInteractor;
     public GameObject rightRayInteractor;
 
+    [Header("Menu Panel")]
     public GameObject startPanel;
     public GameObject gameModePanel;
     public GameObject levelPanel;
     public GameObject settingPanel;
 
+    [Header("Button")]
     public Button casualModeButton;
     public Button heartRateModeButton;
     public Button nextButtonGameMode; // Renamed from startButtonGameMode
@@ -28,6 +32,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
+      
         // Initialize panels
         ShowPanel(startPanel);
 

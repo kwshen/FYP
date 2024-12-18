@@ -13,7 +13,7 @@ public class HeartRateUI : MonoBehaviour
     public Color connectedColor = new Color(0, 1, 0);
     public Color disconnectedColor = new Color(1, 0, 0);
 
-    HeartRateManager heartRate;
+    public HeartRateManager heartRateScript;
     private string heartRateManagerName = "HeartrateManager";
 
     // Start is called before the first frame update
@@ -23,14 +23,13 @@ public class HeartRateUI : MonoBehaviour
         if (labelText == null) labelText = transform.GetComponentInChildren<TextMeshProUGUI>();
         if (connectionStatusImage == null) connectionStatusImage = transform.GetComponentInChildren<Image>();
 
-        heartRate = GameObject.Find(heartRateManagerName).GetComponent<HeartRateManager>();
-        labelText.text = heartRate.getLabelText();
+        labelText.text = heartRateScript.getLabelText();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (heartRate.getCurrentlyConnected() == true)
+        if (heartRateScript.getCurrentlyConnected() == true)
         {
             connectionStatusImage.color = connectedColor;
         }
@@ -40,6 +39,6 @@ public class HeartRateUI : MonoBehaviour
         }
 
 
-        valueText.text = heartRate.getHeartrate().ToString("F0");
+        valueText.text = heartRateScript.getHeartrate().ToString("F0");
     }
 }

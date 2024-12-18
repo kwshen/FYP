@@ -3,8 +3,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class PaddleManager : MonoBehaviour
 {
-    //save start rotation
-    private Quaternion initialRotation;
 
     //use for check hand is still grabbing or not
     private XRBaseInteractor leftHandInteractor = null;
@@ -14,20 +12,20 @@ public class PaddleManager : MonoBehaviour
     //use for reset the position after hand release
     public Transform originalPoint;
 
-    public GameObject kayak;
+    public Collider kayakCollider;
+    public Collider waterCollider;
 
     void Start()
     {
-        initialRotation = transform.rotation;
         grabInteractable = GetComponent<XRGrabInteractable>();
         grabInteractable.selectExited.AddListener(OnRelease);
 
-        Collider kayakCollider = kayak.GetComponent<Collider>();
         Collider paddleCollider = GetComponent<Collider>();
 
-        if (paddleCollider != null && kayakCollider != null)
+        if (paddleCollider != null && kayakCollider != null && waterCollider != null)
         {
             Physics.IgnoreCollision(paddleCollider, kayakCollider);
+            Physics.IgnoreCollision(paddleCollider, waterCollider);
         }
         else
         {
@@ -49,7 +47,8 @@ public class PaddleManager : MonoBehaviour
         if (leftHandInteractor == null && rightHandInteractor == null)
         {
             transform.position = originalPoint.transform.position;
-            transform.rotation = initialRotation;
+            transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
+           
         }
     }
 }

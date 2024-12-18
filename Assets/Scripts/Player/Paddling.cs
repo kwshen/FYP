@@ -169,6 +169,7 @@
 //}
 
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Paddling : MonoBehaviour
 {
@@ -191,7 +192,10 @@ public class Paddling : MonoBehaviour
     private Vector3 leftPaddleVelocity;
     private Vector3 rightPaddleVelocity;
 
-
+    //use for check hand is still grabbing or not
+    public XRDirectInteractor leftHandInteractor;
+    public XRDirectInteractor rightHandInteractor;
+    private XRGrabInteractable grabInteractable;
 
     void Start()
     {
@@ -201,6 +205,7 @@ public class Paddling : MonoBehaviour
             Debug.LogError("Paddle reference transforms are not set!");
         }
 
+        //grabInteractable = GetComponent<XRGrabInteractable>();
         // Initialize last positions
         lastLeftPaddlePosition = paddleLeftReference.position;
         lastRightPaddlePosition = paddleRightReference.position;
@@ -216,15 +221,18 @@ public class Paddling : MonoBehaviour
         bool leftPaddleUnderwater = paddleLeftReference.position.y < waterSurface.position.y - waterDepthThreshold;
         bool rightPaddleUnderwater = paddleRightReference.position.y < waterSurface.position.y - waterDepthThreshold;
 
-        // Apply paddling forces
-        if (leftPaddleUnderwater)
+        if (leftHandInteractor.selectTarget != null && rightHandInteractor.selectTarget != null)
         {
-            ApplyPaddlingForce(leftPaddleVelocity, true);
-        }
+            // Apply paddling forces
+            if (leftPaddleUnderwater)
+            {
+                ApplyPaddlingForce(leftPaddleVelocity, true);
+            }
 
-        if (rightPaddleUnderwater)
-        {
-            ApplyPaddlingForce(rightPaddleVelocity, false);
+            if (rightPaddleUnderwater)
+            {
+                ApplyPaddlingForce(rightPaddleVelocity, false);
+            }
         }
 
         // Update last positions

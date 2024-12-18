@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public WinCollider winColliderScript;
-    public WinLoseUIManager winLoseUIManager;
+    public WinLoseUIManager winLoseUIManagerScript;
     public GameObject winPanel;
     public GameObject losePanel;
     public PlayerManager playerManagerScript;
@@ -18,8 +18,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        winLoseUIManager.winPanel.SetActive(false);
-        winLoseUIManager.losePanel.SetActive(false);
+        winLoseUIManagerScript.winPanel.SetActive(false);
+        winLoseUIManagerScript.losePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,15 +27,13 @@ public class GameController : MonoBehaviour
     {
         if(winColliderScript != null && winColliderScript.getIsPlayerWin() == true)     //player win, nextlvl button
         {
-            winLoseUIManager.setLevelToLoad(level2Scene);
-            winLoseUIManager.losePanel.SetActive(false);
-            winLoseUIManager.winPanel.SetActive(true);
+            winLoseUIManagerScript.setLevelToLoad(level2Scene);
+            winLoseUIManagerScript.activePanel(true);
         }       
         else if(playerManagerScript.getIsPlayerDie() == true)                           //player die, restart button
         {
-            winLoseUIManager.setLevelToLoad(level1Scene);
-            winLoseUIManager.winPanel.SetActive(false);
-            winLoseUIManager.losePanel.SetActive(true);
+            winLoseUIManagerScript.setLevelToLoad(level1Scene);
+            winLoseUIManagerScript.activePanel(false);
         }
     }
 }

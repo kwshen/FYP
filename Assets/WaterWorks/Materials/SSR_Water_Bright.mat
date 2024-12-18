@@ -60,7 +60,7 @@ Material:
     - _Cull: 0
     - _Cutoff: 0
     - _CutoffSpeed: -0.4
-    - _Displacement_Amount: 2
+    - _Displacement_Amount: 0.1
     - _Displacement_Scale: 1
     - _Displacement_Speed: 0.2
     - _DstBlend: 10
@@ -70,7 +70,7 @@ Material:
     - _MaxCutoff: 0
     - _MaxDist: 250
     - _MaxWaveDist: 250
-    - _NormalStrength: 1
+    - _NormalStrength: 0.1
     - _Normal_Strength: 0.1
     - _Offset: 0.9
     - _QueueControl: 0
