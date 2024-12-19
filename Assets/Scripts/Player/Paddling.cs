@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -25,7 +26,10 @@ public class Paddling : MonoBehaviour
     //use for check hand is still grabbing or not
     public XRDirectInteractor leftHandInteractor;
     public XRDirectInteractor rightHandInteractor;
-    private XRGrabInteractable grabInteractable;
+
+    bool leftPaddleUnderwater;
+    bool rightPaddleUnderwater;
+    private bool isPaddling = false;
 
     void Start()
     {
@@ -35,7 +39,6 @@ public class Paddling : MonoBehaviour
             Debug.LogError("Paddle reference transforms are not set!");
         }
 
-        //grabInteractable = GetComponent<XRGrabInteractable>();
         // Initialize last positions
         lastLeftPaddlePosition = paddleLeftReference.position;
         lastRightPaddlePosition = paddleRightReference.position;
@@ -48,8 +51,8 @@ public class Paddling : MonoBehaviour
         rightPaddleVelocity = (paddleRightReference.position - lastRightPaddlePosition) / Time.deltaTime;
 
         // Check if paddles are underwater
-        bool leftPaddleUnderwater = paddleLeftReference.position.y < waterSurface.position.y - waterDepthThreshold;
-        bool rightPaddleUnderwater = paddleRightReference.position.y < waterSurface.position.y - waterDepthThreshold;
+        leftPaddleUnderwater = paddleLeftReference.position.y < waterSurface.position.y - waterDepthThreshold;
+        rightPaddleUnderwater = paddleRightReference.position.y < waterSurface.position.y - waterDepthThreshold;
 
         if (leftHandInteractor.selectTarget != null && rightHandInteractor.selectTarget != null)
         {
@@ -63,6 +66,11 @@ public class Paddling : MonoBehaviour
             {
                 ApplyPaddlingForce(rightPaddleVelocity, false);
             }
+        }
+        else
+        {
+            leftPaddleUnderwater = false;
+            rightPaddleUnderwater = false;
         }
 
         // Update last positions
@@ -86,6 +94,8 @@ public class Paddling : MonoBehaviour
         // Only apply force if paddle is within a reasonable angle
         if (paddleAngle <= maxPaddleAngle && force.magnitude > 0.1f)
         {
+            isPaddling = true;
+
             // Transform force to kayak's local space, accounting for initial -90 rotation
             Vector3 localForce = kayakRigidbody.transform.InverseTransformDirection(force);
 
@@ -101,8 +111,17 @@ public class Paddling : MonoBehaviour
         }
     }
 
+    public bool getLeftPaddleUnderWater()
+    {
+        return leftPaddleUnderwater;
+    }
+     public bool getRightPaddleUnderWater()
+    {
+        return rightPaddleUnderwater;
+    }
 
-
-
-
+    public bool getIsPaddling()
+    {
+        return isPaddling;
+    }
 }

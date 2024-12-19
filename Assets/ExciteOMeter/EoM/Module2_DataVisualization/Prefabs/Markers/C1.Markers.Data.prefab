@@ -28,9 +28,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2291182663899321369}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -104,11 +105,11 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2291182663172801560}
   - {fileID: 2291182664038306295}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0.5019608}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -168,15 +170,16 @@ MonoBehaviour:
   rightBlock: {fileID: 0}
   valueDisplayer: {fileID: 0}
   entryType: 0
-  entryIndex: 0
-  instantMarkerItemPrefab: {fileID: 6555611085884403828, guid: abd2d25616f7a8949b312dd7898c05ee,
-    type: 3}
+  ID: 0
+  instantMarkerItemPrefab: {fileID: 6555611085884403828, guid: abd2d25616f7a8949b312dd7898c05ee, type: 3}
   holderInstantMarkers: {fileID: 2291182663172801637}
   bar: {fileID: 2291182664038306280}
   sessionData:
     isLoaded: 0
+    onScreen: 0
     sessionColor: {r: 0, g: 0, b: 0, a: 0}
     currentEOMvalue: 0
+    sessionDataKey: 0
     sessionListItem: {fileID: 0}
     sessionFolder:
       folderPath: 
@@ -223,6 +226,157 @@ MonoBehaviour:
         value: []
         text: []
         type: 10
+      headset_posX:
+        timestamp: []
+        value: []
+        text: []
+        type: 12
+      headset_posY:
+        timestamp: []
+        value: []
+        text: []
+        type: 13
+      headset_posZ:
+        timestamp: []
+        value: []
+        text: []
+        type: 14
+      headset_q0:
+        timestamp: []
+        value: []
+        text: []
+        type: 15
+      headset_qi:
+        timestamp: []
+        value: []
+        text: []
+        type: 16
+      headset_qj:
+        timestamp: []
+        value: []
+        text: []
+        type: 17
+      headset_qk:
+        timestamp: []
+        value: []
+        text: []
+        type: 18
+      headset_yaw:
+        timestamp: []
+        value: []
+        text: []
+        type: 20
+      headset_pitch:
+        timestamp: []
+        value: []
+        text: []
+        type: 19
+      headset_roll:
+        timestamp: []
+        value: []
+        text: []
+        type: 21
+      headset_velPosX:
+        timestamp: []
+        value: []
+        text: []
+        type: 23
+      headset_velPosY:
+        timestamp: []
+        value: []
+        text: []
+        type: 25
+      headset_velPosZ:
+        timestamp: []
+        value: []
+        text: []
+        type: 27
+      headset_accPosX:
+        timestamp: []
+        value: []
+        text: []
+        type: 24
+      headset_accPosY:
+        timestamp: []
+        value: []
+        text: []
+        type: 26
+      headset_accPosZ:
+        timestamp: []
+        value: []
+        text: []
+        type: 28
+      headset_velQuat0:
+        timestamp: []
+        value: []
+        text: []
+        type: 29
+      headset_velQuati:
+        timestamp: []
+        value: []
+        text: []
+        type: 30
+      headset_velQuatj:
+        timestamp: []
+        value: []
+        text: []
+        type: 31
+      headset_velQuatk:
+        timestamp: []
+        value: []
+        text: []
+        type: 32
+      headset_accQuat0:
+        timestamp: []
+        value: []
+        text: []
+        type: 33
+      headset_accQuati:
+        timestamp: []
+        value: []
+        text: []
+        type: 34
+      headset_accQuatj:
+        timestamp: []
+        value: []
+        text: []
+        type: 35
+      headset_accQuatk:
+        timestamp: []
+        value: []
+        text: []
+        type: 36
+      headset_velEuleri:
+        timestamp: []
+        value: []
+        text: []
+        type: 37
+      headset_velEulerj:
+        timestamp: []
+        value: []
+        text: []
+        type: 38
+      headset_velEulerk:
+        timestamp: []
+        value: []
+        text: []
+        type: 39
+      headset_accEuleri:
+        timestamp: []
+        value: []
+        text: []
+        type: 40
+      headset_accEulerj:
+        timestamp: []
+        value: []
+        text: []
+        type: 41
+      headset_accEulerk:
+        timestamp: []
+        value: []
+        text: []
+        type: 42
+  dataType: 0
 --- !u!114 &2291182663899321445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,9 +425,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2291182663899321369}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -303,6 +457,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
