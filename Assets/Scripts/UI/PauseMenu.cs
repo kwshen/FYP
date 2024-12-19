@@ -4,6 +4,7 @@ using System.Transactions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class PauseMenu : MonoBehaviour
 
     public bool activePauseMenu = true;
 
-    // Start is called before the first frame update
+    public Slider musicSlider;
+    public Slider sfxSlider;
     void Start()
     {
         DisplayPauseMenu();
@@ -55,6 +57,8 @@ public class PauseMenu : MonoBehaviour
     {
         if (activePauseMenu == true)
         {
+            leftRayInteractor.SetActive(false);
+            rightRayInteractor.SetActive(false);
             pauseMenu.SetActive(false);
             activePauseMenu = false;
             Time.timeScale = 1;
@@ -63,6 +67,7 @@ public class PauseMenu : MonoBehaviour
     
     public void MainMenu()
     {
+        
         Time.timeScale = 1;
         transitionManager.GoToSceneAsync(mainMenuScene);
     }
@@ -77,5 +82,14 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true) ;
         settingMenu.SetActive(false) ;
+    }
+
+    public void MusicVolume()
+    {
+        AudioManager.Instance.MusicVolume(musicSlider.value);
+    }
+    public void SFXVolume()
+    {
+        AudioManager.Instance.SFXVolume(sfxSlider.value);
     }
 }

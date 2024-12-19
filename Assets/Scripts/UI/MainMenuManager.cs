@@ -30,6 +30,9 @@ public class MainMenuManager : MonoBehaviour
 
     public SceneTransitionManager transitionManager;
 
+    public Slider musicSlider;
+    public Slider sfxSlider;
+
     void Start()
     {
       
@@ -168,6 +171,15 @@ public class MainMenuManager : MonoBehaviour
         ColorBlock colorBlock = button.colors;
         colorBlock.normalColor = highlightedColor;
         button.colors = colorBlock;
+    }
+
+    public void MusicVolume()
+    {
+        AudioManager.Instance.MusicVolume(musicSlider.value);
+    }
+    public void SFXVolume()
+    {
+        AudioManager.Instance.SFXVolume(sfxSlider.value);
     }
 }
 

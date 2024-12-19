@@ -14,7 +14,6 @@ public class HeartRateUI : MonoBehaviour
     public Color disconnectedColor = new Color(1, 0, 0);
 
     public HeartRateManager heartRateScript;
-    private string heartRateManagerName = "HeartrateManager";
 
     // Start is called before the first frame update
     void Start()

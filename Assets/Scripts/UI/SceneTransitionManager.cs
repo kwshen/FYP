@@ -33,6 +33,7 @@ public class SceneTransitionManager : MonoBehaviour
 
     public void GoToSceneAsync(string sceneName)
     {
+        AudioManager.Instance.StopMusic("Background");
         StartCoroutine(GoToSceneAsyncRoutine(sceneName));
     }
 
