@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerGetHitArea : MonoBehaviour
 {
     private string monsterWeaponPartTag = "MonsterWeaponPart";
-    PlayerManager playerManager;
+    PlayerController playerControllerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerManager = GetComponentInParent<PlayerManager>();
+        playerControllerScript = GetComponentInParent<PlayerController>();
     }
 
 
@@ -18,7 +18,7 @@ public class PlayerGetHitArea : MonoBehaviour
     {
         if (other.CompareTag(monsterWeaponPartTag))
         {
-            playerManager.setIsPlayerDie(true);
+            playerControllerScript.setIsPlayerDie(true);
         }
     }
 }

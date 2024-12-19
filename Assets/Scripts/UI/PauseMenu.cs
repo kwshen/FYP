@@ -20,6 +20,8 @@ public class PauseMenu : MonoBehaviour
 
     public Slider musicSlider;
     public Slider sfxSlider;
+
+    public PaddleManager paddleManagerScript;
     void Start()
     {
         DisplayPauseMenu();
@@ -29,6 +31,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (context.performed)
         {
+            paddleManagerScript.setEnableOrNot(false);
             DisplayPauseMenu();
         }
     }

@@ -15,6 +15,9 @@ public class PaddleManager : MonoBehaviour
     public Collider kayakCollider;
     public Collider waterCollider;
 
+    private bool enableOrNot = true;
+    public Collider paddleBoxCollider;
+
     void Start()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
@@ -38,7 +41,17 @@ public class PaddleManager : MonoBehaviour
         grabInteractable.selectExited.RemoveListener(OnRelease);
     }
 
-
+    void Update()
+    {
+        if(enableOrNot == false)
+        {
+            paddleBoxCollider.enabled = false;
+        }
+        else
+        {
+            paddleBoxCollider.enabled = true;
+        }
+    }
 
     private void OnRelease(SelectExitEventArgs args)
     {
@@ -50,6 +63,11 @@ public class PaddleManager : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
            
         }
+    }
+
+    public void setEnableOrNot(bool enableOrNot)
+    {
+        this.enableOrNot = enableOrNot;
     }
 }
 

@@ -1290,6 +1290,9 @@ MonoBehaviour:
   rightRayInteractor: {fileID: 9029751802152496276}
   transitionManager: {fileID: 0}
   activePauseMenu: 1
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  paddleManagerScript: {fileID: 0}
 --- !u!1 &1439351893212731882
 GameObject:
   m_ObjectHideFlags: 0

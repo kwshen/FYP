@@ -15,6 +15,7 @@ public class WinLoseUIManager : MonoBehaviour
 
     public void activePanel(bool isPlayerWin)
     {
+
         leftRayInteractor.SetActive(true);
         rightRayInteractor.SetActive(true);
         if (isPlayerWin == true)
@@ -25,10 +26,12 @@ public class WinLoseUIManager : MonoBehaviour
         {
             losePanel.SetActive(true);
         }
+        Time.timeScale = 0;
     }
 
     public void nextOrRRestartLevel()
     {
+        Time.timeScale = 1;
         transitionManager.GoToSceneAsync(levelToLoad);
     }
 

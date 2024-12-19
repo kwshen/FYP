@@ -1936,6 +1936,7 @@ MonoBehaviour:
   originalPoint: {fileID: 2677069020531830931}
   kayakCollider: {fileID: 451203767311817571}
   waterCollider: {fileID: 0}
+  paddleBoxCollider: {fileID: 0}
 --- !u!114 &932778334080725690
 MonoBehaviour:
   m_ObjectHideFlags: 0

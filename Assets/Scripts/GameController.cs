@@ -8,7 +8,10 @@ public class GameController : MonoBehaviour
     public WinLoseUIManager winLoseUIManagerScript;
     public GameObject winPanel;
     public GameObject losePanel;
-    public PlayerManager playerManagerScript;
+    public PlayerController playerControllerScript;
+
+    public PauseMenu pauseMenuScript;
+    public PaddleManager paddleManagerScript;
 
     [SerializeField]
     private string level1Scene;
@@ -25,12 +28,18 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(winColliderScript.getIsPlayerWin() == true || playerControllerScript.getIsPlayerDie() == true)
+        {
+            pauseMenuScript.enabled = false;
+            paddleManagerScript.setEnableOrNot(false);
+        }
+
         if(winColliderScript != null && winColliderScript.getIsPlayerWin() == true)     //player win, nextlvl button
         {
             winLoseUIManagerScript.setLevelToLoad(level2Scene);
             winLoseUIManagerScript.activePanel(true);
         }       
-        else if(playerManagerScript.getIsPlayerDie() == true)                           //player die, restart button
+        else if(playerControllerScript.getIsPlayerDie() == true)                           //player die, restart button
         {
             winLoseUIManagerScript.setLevelToLoad(level1Scene);
             winLoseUIManagerScript.activePanel(false);
