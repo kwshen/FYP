@@ -25,6 +25,8 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         DisplayPauseMenu();
+        musicSlider.value = AudioManager.Instance.musicSource.volume;
+        sfxSlider.value = AudioManager.Instance.sfxSource.volume;
     }
 
     public void PauseButtonPressed(InputAction.CallbackContext context)

@@ -36,7 +36,7 @@ public class BearController : MonoBehaviour
                 break;
 
             case BearState.Chasing:
-                HandleChasing();
+                //HandleChasing();
                 break;
 
             case BearState.Sleeping:
@@ -73,7 +73,7 @@ public class BearController : MonoBehaviour
                 agent.SetDestination(randomPos);
 
                 // Small chance of transitioning to sleeping state
-                if (Random.Range(0f, 1f) < 0.01f)
+                if (Random.Range(0f, 1f) < 0.1f)
                 {
                     TransitionToState(BearState.Sleeping);
                 }
@@ -82,7 +82,7 @@ public class BearController : MonoBehaviour
         
         
 
-        CheckForChase();
+        //CheckForChase();
     }
 
     void HandleChasing()

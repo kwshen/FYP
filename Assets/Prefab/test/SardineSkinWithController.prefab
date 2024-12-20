@@ -137,8 +137,8 @@ GameObject:
   - component: {fileID: 4158128973446175130}
   - component: {fileID: 2984681518325887833}
   - component: {fileID: 2303285542782020498}
-  - component: {fileID: 364666431130653676}
   - component: {fileID: 5268339804803979689}
+  - component: {fileID: 6345498745455440938}
   m_Layer: 0
   m_Name: SardineSkinWithController
   m_TagString: Untagged
@@ -211,18 +211,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
---- !u!114 &364666431130653676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900084867342365440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7d2c4c42318453db5bcb468a3d46f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5268339804803979689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +226,22 @@ MonoBehaviour:
   sardineAnimator: {fileID: 0}
   turnSpeed: 0.1
   forwardSpeed: 2
+--- !u!114 &6345498745455440938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900084867342365440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569825dedfea5464b88159535e0d4d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed: 5
+  turnSpeed: 2
+  changeDirectionInterval: 2
+  river: {fileID: 0}
 --- !u!1 &998962926056648807
 GameObject:
   m_ObjectHideFlags: 0

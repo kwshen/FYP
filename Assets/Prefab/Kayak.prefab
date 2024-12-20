@@ -1936,7 +1936,7 @@ MonoBehaviour:
   originalPoint: {fileID: 2677069020531830931}
   kayakCollider: {fileID: 451203767311817571}
   waterCollider: {fileID: 0}
-  paddleBoxCollider: {fileID: 0}
+  paddleBoxCollider: {fileID: 4381601121006381529}
 --- !u!114 &932778334080725690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1959,6 +1959,11 @@ MonoBehaviour:
   paddleRightReference: {fileID: 3118187798070294255}
   leftHandInteractor: {fileID: 7981103313749715347}
   rightHandInteractor: {fileID: 6695717928539131282}
+--- !u!65 &4381601121006381529 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8513156499195216578, guid: b92a57a087f92a84e949517ce37ea219, type: 3}
+  m_PrefabInstance: {fileID: 5398230156917549851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5208592593240217805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 189994389593879510, guid: b92a57a087f92a84e949517ce37ea219, type: 3}
@@ -2036,6 +2041,10 @@ PrefabInstance:
       propertyPath: musicSlider
       value: 
       objectReference: {fileID: 3568959393778522182}
+    - target: {fileID: 4993654807790079938, guid: 561b6178b53d91a459aa8360bcfb2c8b, type: 3}
+      propertyPath: paddleManagerScript
+      value: 
+      objectReference: {fileID: 5177502732187296255}
     - target: {fileID: 5709267939948445534, guid: 561b6178b53d91a459aa8360bcfb2c8b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.416

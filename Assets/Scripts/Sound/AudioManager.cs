@@ -23,12 +23,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        //play background music
-        PlayMusic("Background");
-    }
-
     public void PlayMusic(string clipName)
     {
         Sound s = Array.Find(musicSounds, x => x.name == clipName);
@@ -55,20 +49,6 @@ public class AudioManager : MonoBehaviour
         else
         {
             sfxSource.PlayOneShot(s.clip);
-
-        }
-    }
-    public void StopMusic(string clipName)
-    {
-        Sound s = Array.Find(musicSounds, x => x.name == clipName);
-
-        if (s == null)
-        {
-            Debug.Log("Sound not found");
-        }
-        else
-        {
-            musicSource.Stop();
 
         }
     }

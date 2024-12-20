@@ -172,9 +172,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -303,10 +303,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSounds:
-  - name: 
-    clip: {fileID: 0}
-  - name: Background
+  - name: MainMenuBGM
+    clip: {fileID: 8300000, guid: d6f3e46a981f2a44f8e8b36110f7b2aa, type: 3}
+  - name: Level1BGM
     clip: {fileID: 8300000, guid: 60f8bd4bb4b52074e86551e362e93073, type: 3}
+  - name: Level2BGM
+    clip: {fileID: 8300000, guid: 5ea0131d1e4548d48a5b05a5ff091a35, type: 3}
   sfxSounds:
   - name: PaddleWater
     clip: {fileID: 8300000, guid: 676083a670b80c74cb562243ca233806, type: 3}

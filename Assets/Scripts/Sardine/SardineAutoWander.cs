@@ -70,7 +70,7 @@ public class SardineAutoWander : MonoBehaviour
     {
         if (river != null)
         {
-            float riverHeight = river.transform.position.y;
+            float riverHeight = river.transform.position.y - 1;
             Vector3 constrainedPosition = transform.position;
             constrainedPosition.y = Mathf.Min(constrainedPosition.y, riverHeight);
             transform.position = constrainedPosition;

@@ -66,8 +66,11 @@ public abstract class CrabController : MonoBehaviour
     {
 
         //appear
+
+            
         if (appearCollision.getAppear() == true)
         {
+                
             isSpecialMoving = true;
             disableAgent();
             specialMove();
@@ -92,8 +95,8 @@ public abstract class CrabController : MonoBehaviour
 
 
         //chasing
-        //if (heartRateManager.getHeartrate() >= 85)
-        if (85 >= 85 && isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
+        if (heartRateManager.getHeartrate() >= 85&& isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
+        //if (85 >= 85 && isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
         {
             isChasing = true;
             if (onWater == false)

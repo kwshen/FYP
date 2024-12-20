@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 3411974359311301789}
   - component: {fileID: 5427114984547355668}
   - component: {fileID: 7510144623784273008}
+  - component: {fileID: 2190456812436169728}
   m_Layer: 0
   m_Name: NPCSpawner
   m_TagString: Untagged
@@ -305,14 +306,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba652ccd76cc3e43ac984fdbed6c586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crabPrefab: {fileID: 7033521657119159349, guid: f0612f9ade4945544b78e7b155ade161, type: 3}
-  spawnRadius: 30
-  maxCrabsInArea: 8
-  wanderingCrabCount: 1
-  standingCrabCount: 1
+  crabPrefab: {fileID: 6123940836953000485, guid: 3bfba334e994de04793462bda2286db9, type: 3}
+  spawnRadius: 3
+  crabsPerPoint: 5
   randomizeScale: 1
-  minScale: 0.8
-  maxScale: 1.8
+  minScale: 0.2
+  maxScale: 0.8
 --- !u!114 &7510144623784273008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +325,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bear: {fileID: 503246878831864562, guid: d05b976c2493026468d5726cc02f4642, type: 3}
+--- !u!114 &2190456812436169728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321403353432119011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8f95adfefbfaf4eaaf11a86a94f8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sardinePrefab: {fileID: 900084867342365440, guid: b8908d254e7177846a26f1f667bf86ea, type: 3}
+  spawnRadius: 3
+  sardinesPerPoint: 10
 --- !u!1 &4493016676926548224
 GameObject:
   m_ObjectHideFlags: 0

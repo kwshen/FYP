@@ -35,7 +35,8 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
-      
+        AudioManager.Instance.PlayMusic("MainMenuBGM");
+
         // Initialize panels
         ShowPanel(startPanel);
 
@@ -45,6 +46,9 @@ public class MainMenuManager : MonoBehaviour
         // Disable buttons initially
         nextButtonGameMode.interactable = false;
         startButtonLevelSelect.interactable = false;
+
+        musicSlider.value = AudioManager.Instance.musicSource.volume;
+        sfxSlider.value = AudioManager.Instance.sfxSource.volume;
     }
 
     public void ShowPanel(GameObject panelToShow)

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384242627551675981}
   - component: {fileID: 7571642698001250533}
+  - component: {fileID: 3879602359544009370}
   m_Layer: 0
   m_Name: SardineBoidsGameObject
   m_TagString: Untagged
@@ -52,3 +53,21 @@ MonoBehaviour:
   sardineCount: 0
   rotateSpeed: 1
   meanDummy: {fileID: 0}
+  river: {fileID: 0}
+  depthRecover: 2
+--- !u!114 &3879602359544009370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060349619620608061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569825dedfea5464b88159535e0d4d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardSpeed: 5
+  turnSpeed: 2
+  changeDirectionInterval: 2
+  river: {fileID: 0}
