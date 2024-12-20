@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Skybox
-  m_Shader: {fileID: 4800000, guid: 8c6bc8752936067409b6da1017d80586, type: 3}
+  m_Name: UnderwaterEffects
+  m_Shader: {fileID: 4800000, guid: 49f56094dc36d404c9900cd243cc3f22, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,25 +23,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Texture1:
-        m_Texture: {fileID: 2800000, guid: c15e36d3819e8d14ab21ab119e3fd4a7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2:
-        m_Texture: {fileID: 2800000, guid: c15e36d3819e8d14ab21ab119e3fd4a7, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _Blend: 0.9992856
-    - _Exposure1: 1
-    - _Exposure2: 1
-    - _ImageType: 0
-    - _Layout: 0
-    - _MirrorOnBack: 0
-    - _Rotation1: 0
-    - _Rotation2: 0
-    m_Colors:
-    - _Tint1: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _Tint2: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []

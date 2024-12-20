@@ -5,7 +5,7 @@ using UnityEngine;
 public class spawnBear : MonoBehaviour
 {
     public GameObject bear;
-    int spawnRadius = 100;
+    int spawnRadius = 1;
     string tagName = "SpawnPoint";
     GameObject[] SpawnPointInScene;
     int[] bearCount;
