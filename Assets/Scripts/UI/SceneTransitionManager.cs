@@ -33,6 +33,8 @@ public class SceneTransitionManager : MonoBehaviour
 
     public void GoToSceneAsync(string sceneName)
     {
+        Debug.Log("Loading new scene");
+        Debug.Log(Time.timeScale);
         StartCoroutine(GoToSceneAsyncRoutine(sceneName));
     }
 

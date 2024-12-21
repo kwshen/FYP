@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: fcaa983e5cb90164e93deb02b3bc4285
   - enabled: 1
-    path: Assets/Scenes/Old_Heartrate_Level_1.unity
-    guid: 2d2662161dbeab247a8fdd3c558f0907
+    path: Assets/Scenes/Casual_Level_1.unity
+    guid: 251eda9bcf6bb2e4b8b568449523c735
   - enabled: 1
-    path: Assets/Scenes/Old_Casual_Level_1.unity
-    guid: bc1f54a0390d11245812ed88a35826ee
+    path: Assets/Scenes/Casual_Level_2.unity
+    guid: a01ac43dabc06ce4e990a6ae331a9096
+  - enabled: 1
+    path: Assets/Scenes/Heartrate_Level_1.unity
+    guid: cd1e18db4d054d94d8ea432095d93878
+  - enabled: 1
+    path: Assets/Scenes/Heartrate_Level_2.unity
+    guid: 4732f0106194bae4c94be0703683f1e4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

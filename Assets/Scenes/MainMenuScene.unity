@@ -2151,6 +2151,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.data[1].name
+      value: CasualLevel1BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.data[2].name
+      value: CasualLevel2BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 873ecb3a3856f6149b3e0843398dfe11, type: 3}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.data[3].name
+      value: HeartrateLevel1BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 89aea0271e5738a4d9b854b0d21c34ea, type: 3}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.data[4].name
+      value: HeartrateLevel2BGM
+      objectReference: {fileID: 0}
     - target: {fileID: 3090812904554825063, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2521094
@@ -4607,7 +4635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

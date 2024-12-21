@@ -1643,7 +1643,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2014,7 +2014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2115,6 +2115,18 @@ PrefabInstance:
       propertyPath: waterCollider
       value: 
       objectReference: {fileID: 1334709522}
+    - target: {fileID: 5177502732187296255, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
+      propertyPath: pauseMenuScript
+      value: 
+      objectReference: {fileID: 1525465140}
+    - target: {fileID: 5177502732187296255, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
+      propertyPath: winColliderScript
+      value: 
+      objectReference: {fileID: 839177915}
+    - target: {fileID: 5177502732187296255, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
+      propertyPath: playerControllerScript
+      value: 
+      objectReference: {fileID: 329488050}
     - target: {fileID: 6905940408484175653, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2133,7 +2145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502300364620666950, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 89
+      value: 21.41
       objectReference: {fileID: 0}
     - target: {fileID: 8502300364620666950, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2141,7 +2153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502300364620666950, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.09
+      value: 82.97
       objectReference: {fileID: 0}
     - target: {fileID: 8502300364620666950, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2321,9 +2333,9 @@ SceneRoots:
   - {fileID: 585713139}
   - {fileID: 505470754}
   - {fileID: 422944991}
+  - {fileID: 1883540134}
   - {fileID: 658607471}
   - {fileID: 857069258}
   - {fileID: 580030557}
   - {fileID: 407379095}
   - {fileID: 244074256}
-  - {fileID: 1883540134}

@@ -924,6 +924,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 946.9
       objectReference: {fileID: 0}
+    - target: {fileID: 7510144623784273008, guid: 27a7f5606d31af047b67b3ef94a21451, type: 3}
+      propertyPath: maxScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510144623784273008, guid: 27a7f5606d31af047b67b3ef94a21451, type: 3}
+      propertyPath: minScale
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7546677755937766073, guid: 27a7f5606d31af047b67b3ef94a21451, type: 3}
       propertyPath: m_LocalPosition.x
       value: -521.217
@@ -1471,6 +1479,17 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
+--- !u!114 &740571682 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2292264289949579074, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
+  m_PrefabInstance: {fileID: 3232273177802251638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9649474927e070d418f4d0edee841019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &795596497 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3252034591699343691, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
@@ -1726,7 +1745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1831,6 +1850,14 @@ PrefabInstance:
       propertyPath: waterCollider
       value: 
       objectReference: {fileID: 1334709522}
+    - target: {fileID: 5177502732187296255, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
+      propertyPath: pauseMenuScript
+      value: 
+      objectReference: {fileID: 740571682}
+    - target: {fileID: 5177502732187296255, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
+      propertyPath: playerControllerScript
+      value: 
+      objectReference: {fileID: 5507721721665489686}
     - target: {fileID: 5425860983439314825, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
       propertyPath: m_LayerOverridePriority
       value: 0
@@ -1975,6 +2002,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8502300364620666950, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
   m_PrefabInstance: {fileID: 3232273177802251638}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5507721721665489686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1748733393005171201, guid: 11c8d8a94dae0f440811507468309b33, type: 3}
+  m_PrefabInstance: {fileID: 3232273177802251638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ef4d61dac095143ab0bf4b311d0508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5917558349341617856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2035,6 +2073,10 @@ PrefabInstance:
       propertyPath: river
       value: 
       objectReference: {fileID: 1334709521}
+    - target: {fileID: 9037513103645909082, guid: 02d55d4b6e60eca4cb6b637dafa9e03e, type: 3}
+      propertyPath: levelBGM
+      value: CasualLevel1BGM
+      objectReference: {fileID: 0}
     - target: {fileID: 9037513103645909082, guid: 02d55d4b6e60eca4cb6b637dafa9e03e, type: 3}
       propertyPath: kayakTransform
       value: 

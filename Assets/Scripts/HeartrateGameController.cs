@@ -29,11 +29,11 @@ public class HeartrateGameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(winColliderScript.getIsPlayerWin() == true || playerControllerScript.getIsPlayerDie() == true)
-        {
-            pauseMenuScript.enabled = false;
-            paddleManagerScript.setEnableOrNot(false);
-        }
+        //if(winColliderScript.getIsPlayerWin() == true || playerControllerScript.getIsPlayerDie() == true)
+        //{
+        //    pauseMenuScript.enabled = false;
+        //    paddleManagerScript.setEnableOrNot(false);
+        //}
 
         if(winColliderScript != null && winColliderScript.getIsPlayerWin() == true)     //player win, nextlvl button
         {

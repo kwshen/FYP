@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (context.performed)
         {
-            paddleManagerScript.setEnableOrNot(false);
+            
             DisplayPauseMenu();
         }
     }
@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(activePauseMenu == true)
         {
+            //paddleManagerScript.setEnableOrNot(true);
             leftRayInteractor.SetActive(false);
             rightRayInteractor.SetActive(false);
             pauseMenu.SetActive(false);
@@ -50,6 +51,7 @@ public class PauseMenu : MonoBehaviour
         }
         else if(activePauseMenu == false)
         {
+            //paddleManagerScript.setEnableOrNot(false);
             leftRayInteractor.SetActive(true);
             rightRayInteractor.SetActive(true);
             pauseMenu.SetActive(true);
@@ -96,5 +98,10 @@ public class PauseMenu : MonoBehaviour
     public void SFXVolume()
     {
         AudioManager.Instance.SFXVolume(sfxSlider.value);
+    }
+
+    public bool getActivePauseMenu()
+    {
+        return activePauseMenu;
     }
 }
