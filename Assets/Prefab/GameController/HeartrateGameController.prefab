@@ -45,14 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d74f2c1d9fa25a4ba939c90cc2e5676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winColliderScript: {fileID: 0}
-  winLoseUIManagerScript: {fileID: 0}
-  playerControllerScript: {fileID: 0}
-  pauseMenuScript: {fileID: 0}
-  paddleManagerScript: {fileID: 0}
   level1Scene: Heartrate_Level_1
   level2Scene: Heartrate_Level_2
-  levelBGM: HeartrateLevel2BGM
+  levelBGM: HeartrateLevel1BGM
 --- !u!114 &5782040578634213928
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class PauseMenu : MonoBehaviour
     public PaddleManager paddleManagerScript;
     void Start()
     {
+        if(transitionManager == null)
+            transitionManager = GameObject.Find("TransitionManager").GetComponent<SceneTransitionManager>();
         DisplayPauseMenu();
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
@@ -33,7 +35,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (context.performed)
         {
-            
             DisplayPauseMenu();
         }
     }
@@ -47,6 +48,7 @@ public class PauseMenu : MonoBehaviour
             rightRayInteractor.SetActive(false);
             pauseMenu.SetActive(false);
             activePauseMenu = false;
+            settingMenu.active = false;
             Time.timeScale = 1;
         }
         else if(activePauseMenu == false)

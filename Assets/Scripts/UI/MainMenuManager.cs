@@ -126,14 +126,14 @@ public class MainMenuManager : MonoBehaviour
                 if (selectedLevel == "Level1")
                     sceneName = "Casual_Level_1"; // Replace with actual scene name
                 else if (selectedLevel == "Level2")
-                    sceneName = "Casual_Level2"; // Replace with actual scene name
+                    sceneName = "Casual_Level_2"; // Replace with actual scene name
             }
             else if (selectedGameMode == "Heartrate")
             {
                 if (selectedLevel == "Level1")
                     sceneName = "Heartrate_Level_1"; // Replace with actual scene name
                 else if (selectedLevel == "Level2")
-                    sceneName = "Heartrate_Level2"; // Replace with actual scene name
+                    sceneName = "Heartrate_Level_2"; // Replace with actual scene name
             }
 
             // Load the selected scene

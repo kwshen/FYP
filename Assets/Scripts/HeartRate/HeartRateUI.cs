@@ -13,11 +13,13 @@ public class HeartRateUI : MonoBehaviour
     public Color connectedColor = new Color(0, 1, 0);
     public Color disconnectedColor = new Color(1, 0, 0);
 
-    public HeartRateManager heartRateScript;
+    private HeartRateManager heartRateScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        heartRateScript = GameObject.Find("HeartrateManager").GetComponent<HeartRateManager>();
+
         // Setup UI children
         if (labelText == null) labelText = transform.GetComponentInChildren<TextMeshProUGUI>();
         if (connectionStatusImage == null) connectionStatusImage = transform.GetComponentInChildren<Image>();

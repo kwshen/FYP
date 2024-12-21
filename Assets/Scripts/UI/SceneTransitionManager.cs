@@ -22,8 +22,6 @@ public class SceneTransitionManager : MonoBehaviour
     {
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(fadeScreen.fadeDuration);
-
-        //launch the new scene
     }
 
     private void Awake()
@@ -33,21 +31,18 @@ public class SceneTransitionManager : MonoBehaviour
 
     public void GoToSceneAsync(string sceneName)
     {
-        Debug.Log("Loading new scene");
-        Debug.Log(Time.timeScale);
         StartCoroutine(GoToSceneAsyncRoutine(sceneName));
     }
 
     IEnumerator GoToSceneAsyncRoutine(string sceneName)
     {
-        
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(fadeScreen.fadeDuration);
         progressPanel.SetActive(true);
         //launch the new scene
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         operation.allowSceneActivation = false;
-
+        
         float timer = 0;
         while(timer <= fadeScreen.fadeDuration && !operation.isDone)
         {

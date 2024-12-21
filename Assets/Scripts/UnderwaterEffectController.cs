@@ -58,7 +58,6 @@ public class UnderwaterEffectController : MonoBehaviour
             if (feature.name == "Underwater Effects") // Make sure this matches your feature's exact name
             {
                 feature.SetActive(enable);
-                Debug.Log($"Underwater effect {(enable ? "enabled" : "disabled")}");
                 return;
             }
         }

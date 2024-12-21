@@ -36,6 +36,18 @@ public class TimeManager : MonoBehaviour
 
     public void Update()
     {
+        if (globalLight == null)
+        {
+            // Try to find the light in the new scene
+            globalLight = GameObject.FindObjectOfType<Light>();
+
+            if (globalLight == null)
+            {
+                Debug.LogWarning("No light found in the current scene.");
+                return;
+            }
+        }
+
         sec += Time.deltaTime;
 
         if (sec >= 1)
