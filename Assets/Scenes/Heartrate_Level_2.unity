@@ -2598,6 +2598,10 @@ PrefabInstance:
       value: HeartrateGameController
       objectReference: {fileID: 0}
     - target: {fileID: 2705883832008832516, guid: d0507a051d39be446b3f5a0a4bd18605, type: 3}
+      propertyPath: levelBGM
+      value: HeartrateLevel2BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705883832008832516, guid: d0507a051d39be446b3f5a0a4bd18605, type: 3}
       propertyPath: pauseMenuScript
       value: 
       objectReference: {fileID: 1332020680}

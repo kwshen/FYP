@@ -2152,8 +2152,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
       propertyPath: musicSounds.Array.size
-      value: 5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: sfxSounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 11e75c2b02226d249b3ea608bebb9ff9, type: 3}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: sfxSounds.Array.data[1].name
+      value: CrabComeOut
       objectReference: {fileID: 0}
     - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
       propertyPath: musicSounds.Array.data[1].name
@@ -2178,6 +2190,14 @@ PrefabInstance:
     - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
       propertyPath: musicSounds.Array.data[4].name
       value: HeartrateLevel2BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4676f418c4243734c914f096f0b23064, type: 3}
+    - target: {fileID: 1598193302050911352, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
+      propertyPath: musicSounds.Array.data[5].name
+      value: UnderWaterSoundEffect
       objectReference: {fileID: 0}
     - target: {fileID: 3090812904554825063, guid: a573f242234451f4ca566bf0e3786a82, type: 3}
       propertyPath: m_LocalPosition.x
