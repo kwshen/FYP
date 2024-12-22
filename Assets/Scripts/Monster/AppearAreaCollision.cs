@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AppearAreaCollision : MonoBehaviour
@@ -10,9 +8,12 @@ public class AppearAreaCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Debug.Log("appear" + true);
         if (appear == false && other.CompareTag(playerTag) && onWater == false)
         {
+            Debug.Log("onwater" + onWater);
             appear = true;
+            Debug.Log("appear" + true);
         }
     }
 

@@ -34,10 +34,6 @@ public class PaddleManager : MonoBehaviour
             Physics.IgnoreCollision(paddleCollider, kayakCollider);
             Physics.IgnoreCollision(paddleCollider, waterCollider);
         }
-        else
-        {
-            Debug.Log("collider not found");
-        }
     }
 
     void OnDestroy()

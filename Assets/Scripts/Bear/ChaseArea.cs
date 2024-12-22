@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +13,6 @@ public class ChaseArea : MonoBehaviour
         {
             targetsInRange.Add(other.transform);
         }
-        //GetComponentInParent<Chase> (other).enabled = true;
         
     }
 

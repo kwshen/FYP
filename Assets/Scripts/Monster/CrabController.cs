@@ -1,6 +1,7 @@
 using ExciteOMeter;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -70,10 +71,14 @@ public abstract class CrabController : MonoBehaviour
             
         if (appearCollision.getAppear() == true)
         {
+            if (onWater == false)
+            {
+                //Debug.Log("appear");
+                isSpecialMoving = true;
+                disableAgent();
+                specialMove();
                 
-            isSpecialMoving = true;
-            disableAgent();
-            specialMove();
+            }
             ResetStatus();
         }
         else
@@ -95,7 +100,7 @@ public abstract class CrabController : MonoBehaviour
 
 
         //chasing
-        if (heartRateManager.getHeartrate() >= 85&& isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
+        if (heartRateManager.getHeartrate() >= 90&& isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
         //if (85 >= 85 && isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
         {
             isChasing = true;
@@ -115,7 +120,7 @@ public abstract class CrabController : MonoBehaviour
         }
 
         //if is wander crab and is not chasing
-        if (/*isWanderingCrab == true && */ isChasing == false && isAttack == false)
+        if (isChasing == false && isAttack == false)
         {
             isWandering = true;
             Wander();

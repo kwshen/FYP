@@ -80,9 +80,6 @@ public class BearController : MonoBehaviour
             }
         }
         
-        
-
-        //CheckForChase();
     }
 
     void HandleChasing()

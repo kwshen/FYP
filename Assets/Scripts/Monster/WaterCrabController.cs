@@ -29,7 +29,7 @@ public  class WaterCrabController : CrabController
     {
         if (isOnWater())
         {
-            Debug.Log("jumping");
+            Debug.Log("reset");
             appearCollision.setOnWater(true);
             appearCollision.setAppear(false);
             enableAgent();

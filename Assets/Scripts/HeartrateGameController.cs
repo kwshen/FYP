@@ -1,106 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEngine.SceneManagement;
-
-//public class HeartrateGameController : MonoBehaviour
-//{
-//    private WinCollider winColliderScript;
-//    public WinLoseUIManager winLoseUIManagerScript;
-//    private PlayerController playerControllerScript;
-//    private PauseMenu pauseMenuScript;
-//    private PaddleManager paddleManagerScript;
-//    [SerializeField]
-//    private string level1Scene;
-//    [SerializeField]
-//    private string level2Scene;
-//    public string levelBGM;
-
-//    void Start()
-//    {
-//        InitializeReferences();
-//        SetupLevel();
-//    }
-
-//    void InitializeReferences()
-//    {
-//        if (winLoseUIManagerScript == null)
-//        {
-//            winLoseUIManagerScript = GameObject.Find("WinLoseUIManager").GetComponent<WinLoseUIManager>();
-//        }
-//        winColliderScript = GameObject.Find("WinCollider").GetComponent<WinCollider>();
-//        playerControllerScript = GameObject.Find("Kayak").GetComponent<PlayerController>();
-//        pauseMenuScript = GameObject.Find("Left Controller").GetComponent<PauseMenu>();
-//        paddleManagerScript = GameObject.Find("Paddle").GetComponent<PaddleManager>();
-//    }
-
-//    void SetupLevel()
-//    {
-//        if (winLoseUIManagerScript != null)
-//        {
-//            winLoseUIManagerScript.ResetPanels();
-
-//            // Set the correct next level based on current scene
-//            string currentScene = SceneManager.GetActiveScene().name;
-//            if (currentScene == level1Scene)
-//            {
-//                winLoseUIManagerScript.setLevelToLoad(level2Scene);
-//            }
-//            else
-//            {
-//                winLoseUIManagerScript.setLevelToLoad(level1Scene);
-//            }
-//        }
-
-//        AudioManager.Instance.PlayMusic(levelBGM);
-//    }
-
-//    void Update()
-//    {
-//        // Check for null references and try to recover
-//        if (winLoseUIManagerScript == null)
-//        {
-//            winLoseUIManagerScript = GameObject.Find("WinLoseUIManager").GetComponent<WinLoseUIManager>();
-//            return;
-//        }
-
-//        if (winColliderScript == null)
-//        {
-//            winColliderScript = GameObject.Find("WinCollider").GetComponent<WinCollider>();
-//            return;
-//        }
-
-//        if (playerControllerScript == null)
-//        {
-//            playerControllerScript = GameObject.Find("Kayak").GetComponent<PlayerController>();
-//            return;
-//        }
-
-//        // Handle win condition
-//        if (winColliderScript.getIsPlayerWin())
-//        {
-//            string currentScene = SceneManager.GetActiveScene().name;
-//            if (currentScene == level1Scene)
-//            {
-//                winLoseUIManagerScript.setLevelToLoad(level2Scene);
-//            }
-//            else
-//            {
-//                winLoseUIManagerScript.setLevelToLoad(level1Scene);
-//            }
-//            winLoseUIManagerScript.activePanel(true);
-//        }
-//        // Handle lose condition
-//        else if (playerControllerScript.getIsPlayerDie())
-//        {
-//            string currentScene = SceneManager.GetActiveScene().name;
-//            winLoseUIManagerScript.setLevelToLoad(currentScene);
-//            winLoseUIManagerScript.activePanel(false);
-//        }
-//    }
-//}
-
-// HeartrateGameController.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -236,3 +133,163 @@ public class HeartrateGameController : MonoBehaviour
         }
     }
 }
+
+//using UnityEngine;
+//using UnityEngine.SceneManagement;
+
+//public class HeartrateGameController : MonoBehaviour
+//{
+//    private WinCollider winColliderScript;
+//    public WinLoseUIManager winLoseUIManagerScript;
+//    private PlayerController playerControllerScript;
+//    private PauseMenu pauseMenuScript;
+//    private PaddleManager paddleManagerScript;
+
+//    [SerializeField]
+//    private string level1Scene = "Heartrate_Level_1";
+//    [SerializeField]
+//    private string level2Scene = "Heartrate_Level_2";
+//    public string levelBGM;
+
+//    private bool initialized = false;
+//    private bool hasWon = false;
+
+//    void Start()
+//    {
+//        InitializeComponents();
+//    }
+
+//    void OnEnable()
+//    {
+//        SceneManager.sceneLoaded += OnSceneLoaded;
+//    }
+
+//    void OnDisable()
+//    {
+//        SceneManager.sceneLoaded -= OnSceneLoaded;
+//        CleanupReferences();
+//    }
+
+//    private void CleanupReferences()
+//    {
+//        winColliderScript = null;
+//        playerControllerScript = null;
+//        pauseMenuScript = null;
+//        paddleManagerScript = null;
+//        initialized = false;
+//        hasWon = false;
+//    }
+
+//    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+//    {
+//        InitializeComponents();
+//    }
+
+//    void InitializeComponents()
+//    {
+//        try
+//        {
+//            FindUIManager();
+//            FindGameComponents();
+//            SetupLevel();
+//            initialized = true;
+//            hasWon = false;
+//        }
+//        catch (System.Exception e)
+//        {
+//            Debug.LogError($"Error during initialization: {e.Message}");
+//            initialized = false;
+//        }
+//    }
+
+//    void FindUIManager()
+//    {
+//        if (winLoseUIManagerScript == null)
+//        {
+//            var uiManager = GameObject.Find("WinLoseUIManager");
+//            if (uiManager != null)
+//            {
+//                winLoseUIManagerScript = uiManager.GetComponent<WinLoseUIManager>();
+//            }
+//        }
+//    }
+
+//    void FindGameComponents()
+//    {
+//        var winColliderObj = GameObject.Find("WinCollider");
+//        if (winColliderObj != null)
+//        {
+//            winColliderScript = winColliderObj.GetComponent<WinCollider>();
+//        }
+
+//        var kayakObj = GameObject.Find("Kayak");
+//        if (kayakObj != null)
+//        {
+//            playerControllerScript = kayakObj.GetComponent<PlayerController>();
+//        }
+
+//        var leftControllerObj = GameObject.Find("Left Controller");
+//        if (leftControllerObj != null)
+//        {
+//            pauseMenuScript = leftControllerObj.GetComponent<PauseMenu>();
+//        }
+
+//        var paddleObj = GameObject.Find("Paddle");
+//        if (paddleObj != null)
+//        {
+//            paddleManagerScript = paddleObj.GetComponent<PaddleManager>();
+//        }
+//    }
+
+//    void SetupLevel()
+//    {
+//        if (winLoseUIManagerScript != null)
+//        {
+//            winLoseUIManagerScript.ResetPanels();
+//            string currentScene = SceneManager.GetActiveScene().name;
+//            winLoseUIManagerScript.setLevelToLoad(currentScene == level1Scene ? level2Scene : level1Scene);
+//        }
+
+//        if (AudioManager.Instance != null)
+//        {
+//            AudioManager.Instance.PlayMusic(levelBGM);
+//        }
+//    }
+
+//    void Update()
+//    {
+//        if (!initialized || hasWon) return;
+
+//        try
+//        {
+//            string currentScene = SceneManager.GetActiveScene().name;
+
+//            // Skip if not in a gameplay scene
+//            if (currentScene != level1Scene && currentScene != level2Scene)
+//                return;
+
+//            if (winColliderScript != null && winColliderScript.getIsPlayerWin() && !hasWon)
+//            {
+//                hasWon = true;
+//                string nextLevel = (currentScene == level1Scene) ? level2Scene : level1Scene;
+//                if (winLoseUIManagerScript != null)
+//                {
+//                    winLoseUIManagerScript.setLevelToLoad(nextLevel);
+//                    winLoseUIManagerScript.activePanel(true);
+//                }
+//            }
+//            else if (playerControllerScript != null && playerControllerScript.getIsPlayerDie())
+//            {
+//                if (winLoseUIManagerScript != null)
+//                {
+//                    winLoseUIManagerScript.setLevelToLoad(currentScene);
+//                    winLoseUIManagerScript.activePanel(false);
+//                }
+//            }
+//        }
+//        catch (System.Exception e)
+//        {
+//            Debug.LogError($"Error in Update: {e.Message}");
+//        }
+//    }
+//}

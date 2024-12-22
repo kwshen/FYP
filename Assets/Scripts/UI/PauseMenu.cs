@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Transactions;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -64,6 +60,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (activePauseMenu == true)
         {
             leftRayInteractor.SetActive(false);
@@ -76,19 +73,21 @@ public class PauseMenu : MonoBehaviour
     
     public void MainMenu()
     {
-        
+        AudioManager.Instance.PlaySFX("ButtonClick");
         Time.timeScale = 1;
         transitionManager.GoToSceneAsync(mainMenuScene);
     }
 
     public void SettingMenu()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         pauseMenu.SetActive(false);
         settingMenu.SetActive(true);
     }
 
     public void Back()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         pauseMenu.SetActive(true) ;
         settingMenu.SetActive(false) ;
     }

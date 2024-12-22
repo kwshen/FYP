@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class NormalCrabAnimation : CrabAnimation
 {
     // Start is called before the first frame update
@@ -14,5 +10,10 @@ public class NormalCrabAnimation : CrabAnimation
     void Update()
     {
         crabAnimator.SetInteger("state", 1);
+    }
+
+    protected override void playSpecialMoveSound()
+    {
+
     }
 }

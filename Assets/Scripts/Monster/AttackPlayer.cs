@@ -15,7 +15,6 @@ public class AttackPlayer : MonoBehaviour
         if (other.CompareTag(playerGetHitAreaTag))
         {
             
-                //monsterCollision[i].setAttackSuccess(true);
                 attackAreaCollision.setAttackSuccess(true);
             
         }

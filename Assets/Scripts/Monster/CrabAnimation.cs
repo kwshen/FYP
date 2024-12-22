@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrabAnimation : MonoBehaviour
+public abstract class CrabAnimation : MonoBehaviour
 {
     protected Animator crabAnimator;
     protected CrabController crabController;
+    bool playedSFX = false;
 
     // Start is called before the first frame update
     protected void Start()
@@ -20,13 +21,17 @@ public class CrabAnimation : MonoBehaviour
 
         if (crabController.getIsSpecialMoving() == true)
         {
-
+            if(playedSFX == false)
+            {
+                playSpecialMoveSound();
+                playedSFX = true;
+            }
+            
             crabAnimator.SetTrigger("SpecialMove");
         }
 
         else if (crabController.getIsAttack() == true)
         {
-            //transform.Rotate(0f, 180f, 0f);
             transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
             crabAnimator.SetTrigger("Attack");
         }
@@ -49,7 +54,7 @@ public class CrabAnimation : MonoBehaviour
 
     }
 
-
+    protected abstract void playSpecialMoveSound();
 }
 
 

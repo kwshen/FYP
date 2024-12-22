@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class WaterCrabAnimation : CrabAnimation
 {
     // Start is called before the first frame update
@@ -14,5 +10,10 @@ public class WaterCrabAnimation : CrabAnimation
     void Update()
     {
         base.Update();
+    }
+
+    protected override void playSpecialMoveSound()
+    {
+        AudioManager.Instance.PlaySFX("CrabComeOut");
     }
 }

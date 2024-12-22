@@ -305,12 +305,22 @@ MonoBehaviour:
   musicSounds:
   - name: MainMenuBGM
     clip: {fileID: 8300000, guid: d6f3e46a981f2a44f8e8b36110f7b2aa, type: 3}
-  - name: Level1BGM
+  - name: CasualLevel1BGM
     clip: {fileID: 8300000, guid: 60f8bd4bb4b52074e86551e362e93073, type: 3}
-  - name: Level2BGM
+  - name: CasualLevel2BGM
     clip: {fileID: 8300000, guid: 5ea0131d1e4548d48a5b05a5ff091a35, type: 3}
+  - name: HeartrateLevel1BGM
+    clip: {fileID: 8300000, guid: 873ecb3a3856f6149b3e0843398dfe11, type: 3}
+  - name: HeartrateLevel2BGM
+    clip: {fileID: 8300000, guid: 89aea0271e5738a4d9b854b0d21c34ea, type: 3}
+  - name: UnderWaterSoundEffect
+    clip: {fileID: 8300000, guid: 4676f418c4243734c914f096f0b23064, type: 3}
   sfxSounds:
   - name: PaddleWater
     clip: {fileID: 8300000, guid: 676083a670b80c74cb562243ca233806, type: 3}
+  - name: CrabComeOut
+    clip: {fileID: 8300000, guid: 11e75c2b02226d249b3ea608bebb9ff9, type: 3}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: a8b98572e53f4b64cb8cfb0ee97fb35a, type: 3}
   musicSource: {fileID: 8367872005086094812}
   sfxSource: {fileID: 6118466336572360974}
