@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextReadWrite Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #333;
+            color: white;
+            width: 350px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h3 {
+            color: #fff;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px dotted #ccc;
+            padding: 5px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li a.active {
+            background-color: #555;
+            padding: 3px;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            padding: 15px;
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            display: block;
+            white-space: pre;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="sidebar">
+            <h3><a href="/index.html" style="text-decoration: none; color: #fff;">Scripts Vault</a></h3>
+            <ul>
+                <li><a href="FluentTransform.html">Fluent Transform</a></li>
+                <li><a href="CameraController.html">Camera Controller</a></li>
+                <li><a href="FPSCounter.html">FPS Counter</a></li>
+                <li><a href="ObjectPool.html">Object Pool</a></li>
+                <li><a href="SwipeManager.html">Swipe Manager</a></li>
+                <li><a href="SlowMotion.html">Slow Motion</a></li>
+                <li><a href="CameraShake.html">Camera Shake</a></li>
+                <li><a href="LoadFromResource.html">LoadFromResource</a></li>
+                <li><a href="InputFieldValidation.html">Inputfield Validation</a></li>
+                <li><a href="AdvancePasswordSystem.html">Password System</a></li>
+                <li><a href="JSONReadWrite.html">JSON Read/Write</a></li>
+                <li><a href="TextReadWrite.html" class="active">Text Read/Write</a></li>
+                <li><a href="AndroidPermissions.html">Android Permissions</a></li>
+                <li><a href="EncryptedPlayerPrefs.html">Encrypted Player Prefs</a></li>
+                <li><a href="InternetConnectionChecker.html">Internet Checker</a></li>
+                <li><a href="FileDirectoryOperations.html">File Directory Operations</a></li>
+                <li><a href="Screenshots.html">Screenshots</a></li>
+                <li><a href="PhotoGallery.html">Photo Gallery</a></li>
+                <li><a href="PhotoGalleryNav.html">Photo Gallery Navigation</a></li>
+                <li><a href="VideoGallery.html">Video Gallery & Player</a></li>
+                <li><a href="IPAddressManager.html">IPAddress Manager</a></li>
+                <li><a href="Stopwatch.html">Stopwatch</a></li>
+                <li><a href="CountdownTimer.html">Countdown Timer</a></li>
+                <li><a href="AdvancedRaycaster.html">Advanced Raycaster</a></li>
+                <li><a href="EventManager.html">EventManager</a></li>
+                <li><a href="AsyncSceneLoader.html">AsyncSceneLoader</a></li>
+                <li><a href="CameraPositionManager.html">CameraPositionManager</a></li>
+                <li><a href="DragAndSnapUI.html">DragAndSnapUI</a></li>
+                <li><a href="PinchZoom.html">PinchZoom</a></li>
+                <!-- Add more script links here -->
+            </ul>
+        </div>
+        <div class="main">
+            <h1>Text Read/Write</h1>
+        
+            <!-- Overview Section -->
+            <div class="box">
+                <h2>Overview</h2>
+                <p>
+                    The TextReadWrite script for Unity provides a versatile way to read and write text data, allowing you to save and load textual information within your Unity projects. It simplifies text data handling and offers user interaction for input and text display.
+                </p>
+            </div>
+        
+            <!-- Features Section -->
+            <div class="box">
+                <h2>Features</h2>
+                <ul>
+                    <li>Read and write text data in Unity.</li>
+                    <li>Input fields for entering and saving text.</li>
+                    <li>Error handling for empty input fields.</li>
+                    <li>Display text data on TextMeshPro (TMP) text.</li>
+                    <li>Save and load text data to/from a specified file path.</li>
+                    <li>Customize text formatting and display options.</li>
+                </ul>
+            </div>
+        
+            <!-- Example Usage Section -->
+            <div class="box">
+                <h2>Example Usage</h2>
+                <pre><code>
+// Attach the TextReadWrite script to your Unity GameObject.
+// Customize the input fields, dataText, saveButton, and loadButton in the Inspector.
+
+// Example usage for saving text:
+TextReadWrite textReadWrite = GetComponent&lt;TextReadWrite&gt;();
+textReadWrite.SaveText();
+
+// Example usage for loading and displaying text:
+textReadWrite.LoadText();
+textReadWrite.DisplayText();
+                </code></pre>
+                <p>Integrate text data reading and writing into your Unity projects effortlessly.</p>
+            </div>
+        
+            <!-- Notes Section -->
+            <div class="box">
+                <h2>Notes</h2>
+                <p>
+                    TextReadWrite simplifies the process of handling text data within Unity. Use it to store and retrieve textual information, and customize the script to suit your project's needs for enhanced user interaction and data management.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Scripts Vault Documentation. All rights reserved.</p>
+    </footer>
+</body>
+</html>

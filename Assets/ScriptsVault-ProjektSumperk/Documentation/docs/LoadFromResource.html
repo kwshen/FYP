@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoadFromResource Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #333;
+            color: white;
+            width: 350px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h3 {
+            color: #fff;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px dotted #ccc;
+            padding: 5px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li a.active {
+            background-color: #555;
+            padding: 3px;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            padding: 15px;
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            display: block;
+            white-space: pre;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="sidebar">
+            <h3><a href="/index.html" style="text-decoration: none; color: #fff;">Scripts Vault</a></h3>
+            <ul>
+                <li><a href="FluentTransform.html">Fluent Transform</a></li>
+                <li><a href="CameraController.html">Camera Controller</a></li>
+                <li><a href="FPSCounter.html">FPS Counter</a></li>
+                <li><a href="ObjectPool.html">Object Pool</a></li>
+                <li><a href="SwipeManager.html">Swipe Manager</a></li>
+                <li><a href="SlowMotion.html">Slow Motion</a></li>
+                <li><a href="CameraShake.html">Camera Shake</a></li>
+                <li><a href="LoadFromResource.html" class="active">LoadFromResource</a></li>
+                <li><a href="InputFieldValidation.html">Inputfield Validation</a></li>
+                <li><a href="AdvancePasswordSystem.html">Password System</a></li>
+                <li><a href="JSONReadWrite.html">JSON Read/Write</a></li>
+                <li><a href="TextReadWrite.html">Text Read/Write</a></li>
+                <li><a href="AndroidPermissions.html">Android Permissions</a></li>
+                <li><a href="EncryptedPlayerPrefs.html">EncryptedPlayerPrefs</a></li>
+                <li><a href="InternetConnectionChecker.html">Internet Checker</a></li>
+                <li><a href="FileDirectoryOperations.html">File Directory Operations</a></li>
+                <li><a href="Screenshots.html">Screenshots</a></li>
+                <li><a href="PhotoGallery.html">Photo Gallery</a></li>
+                <li><a href="PhotoGalleryNav.html">Photo Gallery Navigation</a></li>
+                <li><a href="VideoGallery.html">Video Gallery & Player</a></li>
+                <li><a href="IPAddressManager.html">IPAddress Manager</a></li>
+                <li><a href="Stopwatch.html">Stopwatch</a></li>
+                <li><a href="CountdownTimer.html">Countdown Timer</a></li>
+                <li><a href="AdvancedRaycaster.html">Advanced Raycaster</a></li>
+                <li><a href="EventManager.html">EventManager</a></li>
+                <li><a href="AsyncSceneLoader.html">AsyncSceneLoader</a></li>
+                <li><a href="CameraPositionManager.html">CameraPositionManager</a></li>
+                <li><a href="DragAndSnapUI.html">DragAndSnapUI</a></li>
+                <li><a href="PinchZoom.html">PinchZoom</a></li>
+                <!-- Add more script links here -->
+            </ul>
+        </div>
+        <div class="main">
+            <h1>LoadFromResource</h1>
+        
+            <!-- Overview Section -->
+            <div class="box">
+                <h2>Overview</h2>
+                <p>
+                    The LoadFromResource script is a versatile utility for Unity game developers that simplifies the process of loading various types of resources from the Unity Resources folder. Whether you need to load images, audio, JSON data, text, or video, this script provides a convenient way to access and utilize these resources.
+                </p>
+            </div>
+        
+            <!-- Features Section -->
+            <div class="box">
+                <h2>Features</h2>
+                <ul>
+                    <li>Load images, audio, JSON data, text, and video resources effortlessly.</li>
+                    <li>Supports resource subfolders for organized asset management.</li>
+                    <li>Efficient resource caching to improve performance and prevent redundant loading.</li>
+                    <li>Handles resource loading errors and provides error logging.</li>
+                    <li>Easy-to-use API for seamless integration into your Unity projects.</li>
+                </ul>
+            </div>
+        
+            <!-- Example Usage Section -->
+            <div class="box">
+                <h2>Example Usage</h2>
+                <pre><code>
+// Load an image (Sprite) named "PaintIcon" from the "Images" subfolder (if any).
+Sprite imageSprite = LoadFromResource.Load&lt;Sprite&gt;("PaintIcon", "Images");
+
+// Load a JSON file named "mydata.json" from the root folder and deserialize it into a custom data class PersonData.
+PersonData personData = LoadFromResource.LoadJSON&lt;PersonData&lt;("mydata");
+
+// Load an audio clip named "gameover" from the "Audio" subfolder (if any).
+AudioClip audioClip = LoadFromResource.Load&lt;AudioClip&gt;("gameover","Audio");
+
+// Load the prefab named "ResourcesCube2" from the "Subfolder" folder
+GameObject loadedPrefab = LoadFromResource.Load&lt;GameObject&lt;("ResourcesCube2", "Subfolder");
+
+// Load a text asset named "mytext" from the "TextFolder" subfolder (if any).
+TextAsset textAsset = LoadFromResource.Load&lt;TextAsset&lt;("mytext", "TextFolder");
+
+// Load a video clip named "myVideo" from the "Videos" subfolder (if any).
+VideoClip videoClip = LoadFromResource.Load&lt;VideoClip&lt;("myVideo", "Videos");
+
+// Clear the resource cache.
+LoadFromResource.ClearCache();
+                </code></pre>
+                <p>Customize the resource loading according to your project's needs.</p>
+            </div>
+        
+            <!-- Notes Section -->
+            <div class="box">
+                <h2>Notes</h2>
+                <p>
+                    The LoadFromResource script simplifies the resource loading process in Unity, making it easier to manage and utilize assets in your projects. You can use it to load a wide range of resources, whether they are images, audio, JSON data, text, or video files. Be sure to organize your resources in the Unity Resources folder and specify subfolders if necessary for efficient asset management.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Scripts Vault Documentation. All rights reserved.</p>
+    </footer>
+</body>
+</html>

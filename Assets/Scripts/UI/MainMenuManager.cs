@@ -12,12 +12,14 @@ public class MainMenuManager : MonoBehaviour
     public GameObject gameModePanel;
     public GameObject levelPanel;
     public GameObject settingPanel;
+    public GameObject instructionPanel;
 
     [Header("Button")]
     public Button casualModeButton;
     public Button heartRateModeButton;
     public Button nextButtonGameMode; // Renamed from startButtonGameMode
     public Button startButtonLevelSelect; // "Start" button in Level Select panel
+    public Button instructionButton;
 
     private string selectedGameMode; // Tracks the selected game mode
     private string selectedLevel; // Tracks the selected level
@@ -55,6 +57,7 @@ public class MainMenuManager : MonoBehaviour
         gameModePanel.SetActive(false);
         levelPanel.SetActive(false);
         settingPanel.SetActive(false);
+        instructionPanel.SetActive(false);
 
         // Show the selected panel
         panelToShow.SetActive(true);
@@ -142,6 +145,10 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void Instruction()
+    {
+
+    }
 
     private void ResetButtonColors()
     {

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery & Player Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #333;
+            color: white;
+            width: 350px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h3 {
+            color: #fff;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px dotted #ccc;
+            padding: 5px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li a.active {
+            background-color: #555;
+            padding: 3px;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            padding: 15px;
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            display: block;
+            white-space: pre;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="sidebar">
+            <h3><a href="/index.html" style="text-decoration: none; color: #fff;">Scripts Vault</a></h3>
+            <ul>
+                <li><a href="FluentTransform.html">Fluent Transform</a></li>
+                <li><a href="CameraController.html">Camera Controller</a></li>
+                <li><a href="FPSCounter.html">FPS Counter</a></li>
+                <li><a href="ObjectPool.html">Object Pool</a></li>
+                <li><a href="SwipeManager.html">Swipe Manager</a></li>
+                <li><a href="SlowMotion.html">Slow Motion</a></li>
+                <li><a href="CameraShake.html">Camera Shake</a></li>
+                <li><a href="LoadFromResource.html">Load From Resource</a></li>
+                <li><a href="InputFieldValidation.html">Inputfield Validation</a></li>
+                <li><a href="AdvancePasswordSystem.html">Password System</a></li>
+                <li><a href="JSONReadWrite.html">JSON Read/Write</a></li>
+                <li><a href="TextReadWrite.html">Text Read/Write</a></li>
+                <li><a href="AndroidPermissions.html">Android Permissions</a></li>
+                <li><a href="EncryptedPlayerPrefs.html">EncryptedPlayerPrefs</a></li>
+                <li><a href="InternetConnectionChecker.html">Internet Checker</a></li>
+                <li><a href="FileDirectoryOperations.html">File Directory Operations</a></li>
+                <li><a href="Screenshots.html">Screenshots</a></li>
+                <li><a href="PhotoGallery.html">Photo Gallery</a></li>
+                <li><a href="PhotoGalleryNav.html">Photo Gallery Navigation</a></li>
+                <li><a href="VideoGallery.html" class="active">Video Gallery & Player</a></li>
+                <li><a href="IPAddressManager.html">IPAddress Manager</a></li>
+                <li><a href="Stopwatch.html">Stopwatch</a></li>
+                <li><a href="CountdownTimer.html">Countdown Timer</a></li>
+                <li><a href="AdvancedRaycaster.html">Advanced Raycaster</a></li>
+                <li><a href="EventManager.html">EventManager</a></li>
+                <li><a href="AsyncSceneLoader.html">AsyncSceneLoader</a></li>
+                <li><a href="CameraPositionManager.html">CameraPositionManager</a></li>
+                <li><a href="DragAndSnapUI.html">DragAndSnapUI</a></li>
+                <li><a href="PinchZoom.html">PinchZoom</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <h1>Video Gallery & Player</h1>
+        
+            <!-- Overview Section -->
+            <div class="box">
+                <h2>Overview</h2>
+                <p>
+                    The Video Gallery & Player scripts for Unity provide a comprehensive solution for creating video galleries and interactive video players within your Unity projects. This documentation provides an overview of its features, example usage, and important notes for integration.
+                </p>
+            </div>
+        
+            <!-- Features Section -->
+            <div class="box">
+                <h2>Features</h2>
+                <ul>
+                    <li>Video Gallery: Load and display video thumbnails.</li>
+                    <li>Video Player: Play, pause, seek, and control video playback.</li>
+                    <li>Volume Control: Adjust the volume level during playback.</li>
+                    <li>Playback Speed: Change the playback speed of videos.</li>
+                    <li>Video Events: Handle events for video start, pause, loop completion, and completion.</li>
+                    <li>Customizable UI: Customize the appearance and layout of video gallery and player.</li>
+                    <!-- Add more features if needed -->
+                </ul>
+            </div>
+        
+            <!-- Example Usage Section -->
+            <div class="box">
+                <h2>Example Usage</h2>
+                <pre><code>
+// Video Gallery:
+// 1. Attach the VideoGallery script to a GameObject.
+// 2. Load video thumbnails and configure gallery appearance in the Unity Editor.
+videoGallery.LoadVideoGallery();
+
+// Video Player:
+// 1. Attach the VideoPlayers script to a GameObject.
+// 2. Link the video player components (VideoPlayer, UI elements) in the Unity Editor.
+// 3. Control video playback, volume, and speed using the provided UI elements.
+                </code></pre>
+                <p>Create dynamic video galleries and interactive video players for your Unity project with ease.</p>
+            </div>
+        
+            <!-- Notes Section -->
+            <div class="box">
+                <h2>Notes</h2>
+                <p>
+                    The Video Gallery & Player scripts simplify the process of managing video content in Unity. Whether you need to create video galleries or interactive video players, these scripts provide the flexibility and control you need. Customize the scripts to match your project's specific requirements and enhance the user experience.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Scripts Vault Documentation. All rights reserved.</p>
+    </footer>
+</body>
+</html>

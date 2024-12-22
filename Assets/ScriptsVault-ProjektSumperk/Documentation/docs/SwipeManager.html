@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwipeManager Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #333;
+            color: white;
+            width: 350px; /* Fixed width for the sidebar */
+            padding: 20px;
+            box-sizing: border-box; /* To make sure padding is included in width */
+        }
+        .sidebar h3 {
+            color: #fff;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px dotted #ccc;
+            padding: 5px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li a.active {
+            background-color: #555; /* Highlight active tab in a different color */
+            padding: 3px;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            padding: 15px;
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            display: block;
+            white-space: pre;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="sidebar">
+            <h3><a href="/index.html" style="text-decoration: none; color: #fff;">Scripts Vault</a></h3>
+            <ul>
+                <li><a href="FluentTransform.html">Fluent Transform</a></li>
+                <li><a href="CameraController.html">Camera Controller</a></li>
+                <li><a href="FPSCounter.html">FPS Counter</a></li>
+                <li><a href="ObjectPool.html">Object Pool</a></li>
+                <li><a href="SwipeManager.html" class="active">Swipe Manager</a></li>
+                <li><a href="SlowMotion.html">Slow Motion</a></li>
+                <li><a href="CameraShake.html">Camera Shake</a></li>
+                <li><a href="LoadFromResource.html">Load From Resource</a></li>
+                <li><a href="InputFieldValidation.html">Inputfield Validation</a></li>
+                <li><a href="AdvancePasswordSystem.html">Password System</a></li>
+                <li><a href="JSONReadWrite.html">JSON Read/Write</a></li>
+                <li><a href="TextReadWrite.html">Text Read/Write</a></li>
+                <li><a href="AndroidPermissions.html">Android Permissions</a></li>
+                <li><a href="EncryptedPlayerPrefs.html">EncryptedPlayerPrefs</a></li>
+                <li><a href="InternetConnectionChecker.html">Internet Checker</a></li>
+                <li><a href="FileDirectoryOperations.html">File Directory Operations</a></li>
+                <li><a href="Screenshots.html">Screenshots</a></li>
+                <li><a href="PhotoGallery.html">Photo Gallery</a></li>
+                <li><a href="PhotoGalleryNav.html">Photo Gallery Navigation</a></li>
+                <li><a href="VideoGallery.html">Video Gallery & Player</a></li>
+                <li><a href="IPAddressManager.html">IPAddress Manager</a></li>
+                <li><a href="Stopwatch.html">Stopwatch</a></li>
+                <li><a href="CountdownTimer.html">Countdown Timer</a></li>
+                <li><a href="AdvancedRaycaster.html">Advanced Raycaster</a></li>
+                <li><a href="EventManager.html">EventManager</a></li>
+                <li><a href="AsyncSceneLoader.html">AsyncSceneLoader</a></li>
+                <li><a href="CameraPositionManager.html">CameraPositionManager</a></li>
+                <li><a href="DragAndSnapUI.html">DragAndSnapUI</a></li>
+                <li><a href="PinchZoom.html">PinchZoom</a></li>
+                <!-- Add more script links here -->
+            </ul>
+        </div>
+        <div class="main">
+            <h1>SwipeManager</h1>
+
+            <!-- Overview Section -->
+            <div class="box">
+                <h2>Overview</h2>
+                <p>SwipeManager is a versatile Unity script for detecting swipe gestures on touch devices and mouse input. It allows you to easily detect swipes in different directions and trigger actions based on swipe events.</p>
+            </div>
+
+            <!-- Features Section -->
+            <div class="box">
+                <h2>Features</h2>
+                <ul>
+                    <li>Supports detection of swipe gestures in different directions (Up, Down, Left, Right, etc.).</li>
+                    <li>Customizable settings for minimum swipe length and triggering swipes.</li>
+                    <li>Integration with Unity's UI TextMeshPro (TMP_Text) to display swipe logs on the screen.</li>
+                </ul>
+            </div>
+
+            <!-- Example Usage Section -->
+            <div class="box">
+                <h2>Example Usage</h2>
+                <pre><code>
+// Attach the SwipeManager script to a GameObject in your Unity scene.
+
+// Subscribe to swipe detection events:
+SwipeManager.OnSwipeDetected += HandleSwipe;
+
+void HandleSwipe(Swipe swipeDirection, Vector2 swipeVelocity)
+{
+    switch (swipeDirection)
+    {
+        case Swipe.Up:
+            LogSwipe("Swipe Up detected!");
+            // Perform actions for swipe up
+            break;
+        case Swipe.Down:
+            LogSwipe("Swipe Down detected!");
+            // Perform actions for swipe down
+            break;
+        case Swipe.Left:
+            LogSwipe("Swipe Left detected!");
+            // Perform actions for swipe left
+            break;
+        case Swipe.Right:
+            LogSwipe("Swipe Right detected!");
+            // Perform actions for swipe right
+            break;
+        case Swipe.UpLeft:
+            LogSwipe("Swipe Up-Left detected!");
+            // Perform actions for swipe up-left
+            break;
+        case Swipe.UpRight:
+            LogSwipe("Swipe Up-Right detected!");
+            // Perform actions for swipe up-right
+            break;
+        case Swipe.DownLeft:
+            LogSwipe("Swipe Down-Left detected!");
+            // Perform actions for swipe down-left
+            break;
+        case Swipe.DownRight:
+            LogSwipe("Swipe Down-Right detected!");
+            // Perform actions for swipe down-right
+            break;
+        case Swipe.Tap:
+            LogSwipe("Tap detected!");
+            // Perform actions for tap
+            break;
+        case Swipe.None:
+            LogSwipe("No swipe detected.");
+            // Handle when no swipe is detected
+            break;
+    }
+}
+
+// You can customize the swipe handling logic based on your game's requirements.
+
+                </code></pre>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="box">
+                <h2>Notes</h2>
+                <p>The SwipeManager script simplifies the process of detecting swipe gestures in Unity and provides flexibility in customizing swipe detection parameters. You can use it to enhance user interactions in your games or applications.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Scripts Vault Documentation. All rights reserved.</p>
+    </footer>
+</body>
+</html>

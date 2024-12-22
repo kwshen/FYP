@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #333;
+            color: white;
+            width: 350px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h3 {
+            color: #fff;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px dotted #ccc;
+            padding: 5px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li a.active {
+            background-color: #555;
+            padding: 3px;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            padding: 15px;
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            display: block;
+            white-space: pre;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="sidebar">
+            <h3><a href="/index.html" style="text-decoration: none; color: #fff;">Scripts Vault</a></h3>
+            <ul>
+                <li><a href="FluentTransform.html">Fluent Transform</a></li>
+                <li><a href="CameraController.html">Camera Controller</a></li>
+                <li><a href="FPSCounter.html">FPS Counter</a></li>
+                <li><a href="ObjectPool.html">Object Pool</a></li>
+                <li><a href="SwipeManager.html">Swipe Manager</a></li>
+                <li><a href="SlowMotion.html">Slow Motion</a></li>
+                <li><a href="CameraShake.html">Camera Shake</a></li>
+                <li><a href="LoadFromResource.html">Load From Resource</a></li>
+                <li><a href="InputFieldValidation.html">Inputfield Validation</a></li>
+                <li><a href="AdvancePasswordSystem.html">Password System</a></li>
+                <li><a href="JSONReadWrite.html">JSON Read/Write</a></li>
+                <li><a href="TextReadWrite.html">Text Read/Write</a></li>
+                <li><a href="AndroidPermissions.html">Android Permissions</a></li>
+                <li><a href="EncryptedPlayerPrefs.html">EncryptedPlayerPrefs</a></li>
+                <li><a href="InternetConnectionChecker.html">Internet Checker</a></li>
+                <li><a href="FileDirectoryOperations.html">File Directory Operations</a></li>
+                <li><a href="Screenshots.html">Screenshots</a></li>
+                <li><a href="PhotoGallery.html">Photo Gallery</a></li>
+                <li><a href="PhotoGalleryNav.html">Photo Gallery Navigation</a></li>
+                <li><a href="VideoGallery.html">Video Gallery & Player</a></li>
+                <li><a href="IPAddressManager.html">IPAddress Manager</a></li>
+                <li><a href="Stopwatch.html" class="active">Stopwatch</a></li>
+                <li><a href="CountdownTimer.html">Countdown Timer</a></li>
+                <li><a href="AdvancedRaycaster.html">Advanced Raycaster</a></li>
+                <li><a href="EventManager.html">EventManager</a></li>
+                <li><a href="AsyncSceneLoader.html">AsyncSceneLoader</a></li>
+                <li><a href="CameraPositionManager.html">CameraPositionManager</a></li>
+                <li><a href="DragAndSnapUI.html">DragAndSnapUI</a></li>
+                <li><a href="PinchZoom.html">PinchZoom</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <h1>Stopwatch</h1>
+        
+            <!-- Overview Section -->
+            <div class="box">
+                <h2>Overview</h2>
+                <p>
+                    The Stopwatch script for Unity is a powerful tool designed to create and manage stopwatches in your Unity projects. This documentation provides an overview of its features, example usage, and important notes for integration.
+                </p>
+            </div>
+        
+            <!-- Features Section -->
+            <div class="box">
+                <h2>Features</h2>
+                <ul>
+                    <li>Accurate time tracking with milliseconds precision.</li>
+                    <li>Start, stop, reset, and lap functionalities.</li>
+                    <li>Customizable appearance and UI design.</li>
+                    <li>Error Handling Integration</li>
+                    <li>Start Callback Handler</li>
+                    <li>Stop Callback Handler</li>
+                    <li>Reset Callback Handler</li>
+                    <li>New Lap Callback Handler</li>
+                    <!-- Add more features if needed -->
+                </ul>
+            </div>
+        
+            <!-- Example Usage Section -->
+            <div class="box">
+                <h2>Example Usage</h2>
+                <pre><code>
+// Attach the Stopwatch script to your Unity GameObject.
+// Customize the appearance and settings of your stopwatch in the Unity Editor.
+
+// Start the stopwatch.
+stopwatch.StartStopwatch();
+
+// Stop the stopwatch.
+stopwatch.StopStopwatch();
+
+// Reset the stopwatch.
+stopwatch.ResetStopwatch();
+
+// Record a lap time.
+stopwatch.LapStopwatch();
+
+// Register custom callback methods for all events
+stopwatch.OnStopwatchStart += HandleStopwatchStart;
+stopwatch.OnStopwatchStop += HandleStopwatchStop;
+stopwatch.OnStopwatchReset += HandleStopwatchReset;
+stopwatch.OnStopwatchLap += HandleStopwatchLap;
+
+// Customize and enhance your stopwatch to meet your project's requirements.
+                </code></pre>
+                <p>Create and manage stopwatches for various purposes in your Unity project using the Stopwatch script.</p>
+            </div>
+        
+            <!-- Callbacks Section -->
+            <div class="box">
+                <h2>Callbacks</h2>
+                <p>
+                    You can register custom callback methods for all events to handle specific actions when the stopwatch starts, stops, resets, or records a lap time. Use these callbacks to implement your own logic and enhance the functionality of the stopwatch.
+                </p>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="box">
+                <h2>Notes</h2>
+                <p>
+                    The Stopwatch script simplifies the process of tracking time with high precision in Unity. With support for various functionalities and customization options, you can create versatile timers for your project. Be sure to follow the documentation and customize the script to match your project's specific needs.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Scripts Vault Documentation. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject settingMenu;
+    public GameObject instruction;
     public GameObject leftRayInteractor;
     public GameObject rightRayInteractor;
     public SceneTransitionManager transitionManager;
@@ -20,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     public PaddleManager paddleManagerScript;
     void Start()
     {
-        if(transitionManager == null)
+        if (transitionManager == null)
             transitionManager = GameObject.Find("TransitionManager").GetComponent<SceneTransitionManager>();
         DisplayPauseMenu();
         musicSlider.value = AudioManager.Instance.musicSource.volume;
@@ -37,7 +38,7 @@ public class PauseMenu : MonoBehaviour
 
     public void DisplayPauseMenu()
     {
-        if(activePauseMenu == true)
+        if (activePauseMenu == true)
         {
             //paddleManagerScript.setEnableOrNot(true);
             leftRayInteractor.SetActive(false);
@@ -45,9 +46,10 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(false);
             activePauseMenu = false;
             settingMenu.active = false;
+            instruction.active = false;
             Time.timeScale = 1;
         }
-        else if(activePauseMenu == false)
+        else if (activePauseMenu == false)
         {
             //paddleManagerScript.setEnableOrNot(false);
             leftRayInteractor.SetActive(true);
@@ -70,7 +72,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-    
+
     public void MainMenu()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
@@ -85,11 +87,19 @@ public class PauseMenu : MonoBehaviour
         settingMenu.SetActive(true);
     }
 
+    public void Instruction()
+    {
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        pauseMenu.SetActive(false);
+        instruction.SetActive(true);
+    }
+
     public void Back()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
-        pauseMenu.SetActive(true) ;
-        settingMenu.SetActive(false) ;
+        pauseMenu.SetActive(true);
+        settingMenu.SetActive(false);
+        instruction.SetActive(false);
     }
 
     public void MusicVolume()

@@ -1,0 +1,212 @@
+<!-- SlowMotionManager.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slow Motion Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+        }
+        .sidebar {
+            background-color: #333;
+            color: white;
+            width: 350px; /* Fixed width for the sidebar */
+            padding: 20px;
+            box-sizing: border-box; /* To make sure padding is included in width */
+        }
+        .sidebar h3 {
+            color: #fff;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px dotted #ccc;
+            padding: 5px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li a.active {
+            background-color: #555; /* Highlight active tab in a different color */
+            padding: 3px;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            padding: 15px;
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            display: block;
+            white-space: pre;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="sidebar">
+            <h3><a href="/index.html" style="text-decoration: none; color: #fff;">Scripts Vault</a></h3>
+            <ul>
+                <li><a href="FluentTransform.html">Fluent Transform</a></li>
+                <li><a href="CameraController.html">Camera Controller</a></li>
+                <li><a href="FPSCounter.html">FPS Counter</a></li>
+                <li><a href="ObjectPool.html">Object Pool</a></li>
+                <li><a href="SwipeManager.html">Swipe Manager</a></li>
+                <li><a href="SlowMotion.html" class="active">Slow Motion</a></li>
+                <li><a href="CameraShake.html">Camera Shake</a></li>
+                <li><a href="LoadFromResource.html">Load From Resource</a></li>
+                <li><a href="InputFieldValidation.html">Inputfield Validation</a></li>
+                <li><a href="AdvancePasswordSystem.html">Password System</a></li>
+                <li><a href="JSONReadWrite.html">JSON Read/Write</a></li>
+                <li><a href="TextReadWrite.html">Text Read/Write</a></li>
+                <li><a href="AndroidPermissions.html">Android Permissions</a></li>
+                <li><a href="EncryptedPlayerPrefs.html">EncryptedPlayerPrefs</a></li>
+                <li><a href="InternetConnectionChecker.html">Internet Checker</a></li>
+                <li><a href="FileDirectoryOperations.html">File Directory Operations</a></li>
+                <li><a href="Screenshots.html">Screenshots</a></li>
+                <li><a href="PhotoGallery.html">Photo Gallery</a></li>
+                <li><a href="PhotoGalleryNav.html">Photo Gallery Navigation</a></li>
+                <li><a href="VideoGallery.html">Video Gallery & Player</a></li>
+                <li><a href="IPAddressManager.html">IPAddress Manager</a></li>
+                <li><a href="Stopwatch.html">Stopwatch</a></li>
+                <li><a href="CountdownTimer.html">Countdown Timer</a></li>
+                <li><a href="AdvancedRaycaster.html">Advanced Raycaster</a></li>
+                <li><a href="EventManager.html">EventManager</a></li>
+                <li><a href="AsyncSceneLoader.html">AsyncSceneLoader</a></li>
+                <li><a href="CameraPositionManager.html">CameraPositionManager</a></li>
+                <li><a href="DragAndSnapUI.html">DragAndSnapUI</a></li>
+                <li><a href="PinchZoom.html">PinchZoom</a></li>
+                <!-- Add more script links here -->
+            </ul>
+        </div>
+        <div class="main">
+            <h1>Slow Motion Manager</h1>
+        
+            <!-- Overview Section -->
+            <div class="box">
+                <h2>Overview</h2>
+                <p>
+                    The Slow Motion Manager is a versatile Unity script that allows you to create slow-motion effects in your game. It enables you to control the speed of time, creating dramatic and cinematic gameplay moments.
+                </p>
+            </div>
+        
+            <!-- Features Section -->
+            <div class="box">
+                <h2>Features</h2>
+                <ul>
+                    <li>Adjustable slow-motion factor to control the degree of slow motion.</li>
+                    <li>Smooth transition between normal and slow motion time scales.</li>
+                    <li>Customizable key binding to trigger slow motion.</li>
+                    <li>Real-time display of the current status on the UI.</li>
+                </ul>
+            </div>
+        
+            <!-- Example Usage Section -->
+            <div class="box">
+                <h2>Example Usage</h2>
+                <pre><code>
+public class ExampleUsage : MonoBehaviour
+{
+
+    private void Update()
+    {
+        // Check if the slow-motion key is pressed
+        if (Input.GetKeyDown(slowMotionKey))
+        {
+            if (!isSlowingDown)
+            {
+                // Start slowing down time
+                isSlowingDown = true;
+                currentTransitionTime = 0f;
+            }
+            else
+            {
+                // Resume normal time
+                isSlowingDown = false;
+                currentTransitionTime = transitionDuration;
+            }
+        }
+
+        // Apply slow motion
+
+        // Resume normal time
+
+    }
+
+    // Update the TMP_Text component with the current status
+    private void UpdateStatusText()
+    {
+        if (statusText != null)
+        {
+            if (isSlowingDown)
+            {
+                statusText.text = "Slow Motion Active (Press " + slowMotionKey.ToString() + " to Resume)";
+            }
+            else
+            {
+                statusText.text = "Normal Time (Press " + slowMotionKey.ToString() + " for Slow Motion)";
+            }
+        }
+    }
+}
+                </code></pre>
+                <p>Attach this script to empty gameObject and press the Spacebar to trigger a show motion effect.</p>
+            </div>
+        
+            <!-- Notes Section -->
+            <div class="box">
+                <h2>Notes</h2>
+                <p>
+                    The Slow Motion Manager script offers a straightforward way to implement slow-motion effects in your Unity game. It provides flexibility in adjusting the slow-motion factor, transition duration, and key binding for triggering slow motion. Additionally, it allows real-time status updates on the UI text.
+                </p>
+            </div>
+        </div>
+        
+    </div>
+    <footer>
+        <p>&copy; 2024 Scripts Vault Documentation. All rights reserved.</p>
+    </footer>
+</body>
+</html>
