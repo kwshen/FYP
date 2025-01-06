@@ -8,9 +8,11 @@ public class HeartRateUI : MonoBehaviour
     public TextMeshProUGUI labelText;
     public Image connectionStatusImage;
     public TextMeshProUGUI valueText;
+    public GameObject tipsText;
 
     public Color connectedColor = new Color(0, 1, 0);
     public Color disconnectedColor = new Color(1, 0, 0);
+    public Color dangerColor = new Color(1, 0, 0);
 
     private HeartRateManager heartRateScript;
 
@@ -21,6 +23,11 @@ public class HeartRateUI : MonoBehaviour
 
         // Setup UI children
         if (labelText == null) labelText = transform.GetComponentInChildren<TextMeshProUGUI>();
+        if (tipsText == null)
+        {
+            tipsText = GameObject.Find("tips");
+            Debug.Log("tipsnull");
+        }
         if (connectionStatusImage == null) connectionStatusImage = transform.GetComponentInChildren<Image>();
 
         labelText.text = heartRateScript.getLabelText();
@@ -38,6 +45,17 @@ public class HeartRateUI : MonoBehaviour
             connectionStatusImage.color = disconnectedColor;
         }
 
+        if(heartRateScript.getHeartrate() >= 100)
+        //if(100 >= 100)
+        {
+            connectionStatusImage.color = dangerColor;
+            tipsText.SetActive(true);
+        }
+        else
+        {
+            connectionStatusImage.color= connectedColor;
+            tipsText.SetActive(false);
+        }
 
         valueText.text = heartRateScript.getHeartrate().ToString("F0");
     }

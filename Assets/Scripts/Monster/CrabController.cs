@@ -69,22 +69,22 @@ public abstract class CrabController : MonoBehaviour
         //appear
 
             
-        if (appearCollision.getAppear() == true)
-        {
-            if (onWater == false)
-            {
-                //Debug.Log("appear");
-                isSpecialMoving = true;
-                disableAgent();
-                specialMove();
+        //if (appearCollision.getAppear() == true)
+        //{
+        //    if (onWater == false)
+        //    {
+        //        //Debug.Log("appear");
+        //        isSpecialMoving = true;
+        //        disableAgent();
+        //        specialMove();
                 
-            }
-            ResetStatus();
-        }
-        else
-        {
-            isSpecialMoving = false;
-        }
+        //    }
+        //    ResetStatus();
+        //}
+        //else
+        //{
+        //    isSpecialMoving = false;
+        //}
 
         //attack
         if (attackCollision.getAttack() == true)
@@ -100,9 +100,11 @@ public abstract class CrabController : MonoBehaviour
 
 
         //chasing
-        if (heartRateManager.getHeartrate() >= 90&& isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
-        //if (85 >= 85 && isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
+        if (heartRateManager.getHeartrate() >= 100 && isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
+        //if (100 >= 100 && isAttack == false && appearAndChaseScript.getAppearAndChase() == true)
         {
+            agent.speed = (float)(0.5 + 0.1 * (heartRateManager.getHeartrate() - 100));
+
             isChasing = true;
             if (onWater == false)
             {
@@ -133,8 +135,10 @@ public abstract class CrabController : MonoBehaviour
     }
 
     protected abstract void specialMove();
+
     protected void Wander()
     {
+        agent.speed = 0.4f;
         wanderTimer += Time.deltaTime;
         bool isAtDestination;
 
@@ -155,6 +159,7 @@ public abstract class CrabController : MonoBehaviour
 
     private void Chase()
     {
+        
         if (agent != null && agent.enabled == true && agent.isOnNavMesh == true)
         {
             agent.SetDestination(Player.transform.position);

@@ -1,8 +1,11 @@
 public class WaterCrabAnimation : CrabAnimation
 {
+    WaterCrabAudio waterCrabAudio;
+
     // Start is called before the first frame update
     void Start()
     {
+        waterCrabAudio = GetComponent<WaterCrabAudio>();
         base.Start();
     }
 
@@ -14,6 +17,6 @@ public class WaterCrabAnimation : CrabAnimation
 
     protected override void playSpecialMoveSound()
     {
-        AudioManager.Instance.PlaySFX("CrabComeOut");
+        waterCrabAudio.playJumpSound();
     }
 }

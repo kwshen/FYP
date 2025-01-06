@@ -18,6 +18,7 @@ TagManager:
   - PlayerGetHitArea
   - Deer
   - HeartrateManager
+  - DeerWanderPoint
   layers:
   - Default
   - TransparentFX

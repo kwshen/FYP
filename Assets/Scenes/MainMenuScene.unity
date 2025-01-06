@@ -8549,6 +8549,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2439930657581396211, guid: 561b6178b53d91a459aa8360bcfb2c8b, type: 3}
+      propertyPath: m_text
+      value: 'Patience is key in life
+
+        Please wait for a while...'
+      objectReference: {fileID: 0}
     - target: {fileID: 2526213399396703085, guid: 561b6178b53d91a459aa8360bcfb2c8b, type: 3}
       propertyPath: m_IsActive
       value: 1
